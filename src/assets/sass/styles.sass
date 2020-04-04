@@ -1,13 +1,23 @@
-$primary: #00d1b2
+$primary: #ff8800
 $primary-invert: #ffffff
+$link: $primary
+$family-primary: 'Lato', 'Comic Sans', sans-serif
+
+$navbar-background-color: #222222
+$navbar-item-color: $primary-invert
+$navbar-item-hover-color: $primary-invert
+$navbar-item-hover-background-color: $primary
+$navbar-item-active-color: #222222
+$navbar-item-active-background-color: #222222
+$navbar-burger-color: $primary-invert
+$navbar-height: 4rem
+$navbar-item-img-max-height: 2.5rem
+
 
 @import "~bulma"
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Rancho&display=swap');
 
-html,
-body,
-#___gatsby,
-#gatsby-focus-wrapper,
-#layout-wrapper
+html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   height: 100%
 
 #layout-wrapper
@@ -17,9 +27,6 @@ body,
 
 #content-wrapper
   flex: 1
-
-nav
-  border-bottom: lightgray solid 0.1vmin
 
 .content .taglist
   list-style: none
@@ -39,4 +46,10 @@ nav
 .margin-top-0
   margin-top: 0 !important
 
-@import "~bulma"
+.font-accent, .title
+  font-family: 'Rancho', 'Comic Sans', sans-serif
+
+.font-text
+  font-family: 'Lato', 'Comic Sans', sans-serif
+
+

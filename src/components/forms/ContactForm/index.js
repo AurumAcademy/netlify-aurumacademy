@@ -33,13 +33,7 @@ const ContactForm = () => {
             setSubmitting(false)
           })
       }}
-      render={({
-        errors,
-        touched,
-        isSubmitting,
-        handleSubmit,
-        handleReset,
-      }) => (<form
+      render={({ errors, touched, isSubmitting, handleSubmit, handleReset }) => (<form
         name='contact'
         onSubmit={handleSubmit}
         onReset={handleReset}

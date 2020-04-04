@@ -11,7 +11,7 @@ module.exports = {
       feed_url: config.siteUrl + pathPrefix + config.siteRss,
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
+      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512.png`,
       author: config.userName,
       copyright: config.copyright,
     },
@@ -69,6 +69,62 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [".mdx"],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+              showCaptions: true,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+            },
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: null,
+              rel: "nofollow noopener noreferrer external",
+            },
+          },
+          `gatsby-remark-slug`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.siteTitle,
+        short_name: config.siteTitleAlt,
+        start_url: '/index.html',
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        icons: [
+          {
+            src: `/icons/icon-192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
@@ -90,29 +146,7 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleAlt,
-        start_url: '/index.html',
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'standalone',
-        icons: [
-          {
-            src: `/icons/icon-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `/icons/icon-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
-      },
-    },
+
     `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-plugin-feed',
