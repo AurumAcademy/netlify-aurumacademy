@@ -1,23 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
+import CoolHeroBlock from '../components/CoolHeroBlock'
+import BigInfo from '../components/BigInfo'
+import Plans from '../components/Plans'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <HomePageTemplate
-        title={frontmatter.title}
-        meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        offerings={frontmatter.offerings}
-        testimonials={frontmatter.testimonials}
-      />
+      <Helmet>
+        <title>{frontmatter.meta_title}</title>
+        <meta name='description' content={frontmatter.meta_description} />
+      </Helmet>
+      <BigInfo gridItems={frontmatter.blurbs}></BigInfo>
+      <Plans data={frontmatter.classes}></Plans>
     </Layout>
   )
 }
@@ -41,15 +41,16 @@ export const pageQuery = graphql`
         meta_description
         heading
         description
-        offerings {
-          blurbs {
-            image
-            text
-          }
+        blurbs {
+          title
+          image
+          text
         }
-        testimonials {
-          author
-          quote
+        classes {
+          name
+          image
+          text
+          items
         }
       }
     }

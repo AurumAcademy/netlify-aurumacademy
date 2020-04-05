@@ -4,16 +4,19 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { HTMLContent } from '../components/Content'
 
-const AboutPage = ({ data }) => {
+const RedirectPage = ({ data }) => {
   const { markdownRemark: post } = data
   return (
     <Layout title={post.frontmatter.title}>
-      <section className='section'>
-        <div className='container content'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <HTMLContent content={post.html} />
-              <hr />
+      <section className='hero is-primary is-bold is-large'>
+        <div className='hero-body'>
+          <div className='container'>
+            <div className='columns'>
+              <div className='column is-10 is-offset-1'>
+                <div className='section is-centered content is-large'>
+                    <HTMLContent className='has-text-white' content={post.html} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -22,24 +25,20 @@ const AboutPage = ({ data }) => {
   )
 }
 
-AboutPage.propTypes = {
+RedirectPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default AboutPage 
+export default RedirectPage 
 
 export const pageQuery = graphql`
-  query AboutPage($id: String!) {
+  query RedirectPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
-      fields {
-            slug
-          }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
         meta_title
         meta_description

@@ -37,9 +37,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/img`,
@@ -67,6 +64,9 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
     },
     {
       resolve: `gatsby-mdx`,
