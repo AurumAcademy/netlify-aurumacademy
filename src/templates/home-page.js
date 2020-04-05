@@ -12,7 +12,7 @@ const HomePage = ({ data }) => {
   return (
     <Layout hideLogo={true}>
       {/* <section className='hero is-accent is-fullheight'> */}
-      <section className='hero is-accent is-medium'>
+      <section className='hero is-accent is-medium-stagnant'>
         <div className='half-triangle'></div>
         <img className='main-logo' src='img/logo.png' alt='Aurum Academy'></img>
         <div className='hero-body'>
