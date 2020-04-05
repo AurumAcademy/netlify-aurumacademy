@@ -10,6 +10,11 @@ class Layout extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    hideLogo: PropTypes.bool
+  }
+
+  static defaultProps = {
+    hideLogo: false
   }
   
   constructor (props) {
@@ -29,9 +34,10 @@ class Layout extends React.Component {
       <div id='layout-wrapper'>
         <Helmet>
           <title>{title}</title>
+          <meta name='title' content={title} />
           <meta name='description' content={description} />
         </Helmet>
-        <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
+        <NavBar isActive={this.state.isActive} toggleNavbar={this.toggleNavbar} hideLogo={this.props.hideLogo} />
         <div id='content-wrapper'>
           {this.props.children}
         </div>

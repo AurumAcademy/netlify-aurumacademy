@@ -1,20 +1,25 @@
-$primary: #ff8800
-$primary-invert: #ffffff
-$link: $primary
-$link-hover: $primary-invert
-$family-primary: 'Lato', 'Comic Sans', sans-serif
+$gold: #ffd900
+$tang: #ff8800
+$pink: #ff3388
+$dark: #222222
 
-$navbar-background-color: #222222
-$navbar-item-color: $primary-invert
-$navbar-item-hover-color: $primary-invert
-$navbar-item-hover-background-color: $primary
-$navbar-item-active-color: #222222
-$navbar-item-active-background-color: #222222
-$navbar-burger-color: $primary-invert
+$primary: $tang
+$primary-invert: #ffffff
+$link: $tang
+$link-hover: $gold
+$family-primary: 'Lato', 'Comic Sans', sans-serif
+$custom-colors: ('gold': $gold)
+
+$navbar-background-color: $dark
+$navbar-item-color: $gold
+$navbar-item-hover-color: $dark
+$navbar-item-hover-background-color: $gold
+// $navbar-item-active-color: $dark
+// $navbar-item-active-background-color: $gold
 $navbar-height: 4rem
 $navbar-item-img-max-height: 2.5rem
 
-$footer-color: $navbar-item-color
+$footer-color: $primary-invert
 $footer-background-color: $navbar-background-color
 
 
@@ -51,13 +56,33 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   margin-left: auto;
   margin-right: auto;
 
+.is-dark a, .is-dark .is-primary
+  color: $gold !important
+  border-color: $gold !important
+
+.is-dark .button.is-primary:hover
+  color: $dark !important
+  background-color: $gold
+
+.navbar.is-dark .navbar-burger
+  color: $gold
+
 .has-text-white *
   color: white !important
 
-.is-accent, .title
+.hero.is-accent
+  color: white
+  background: linear-gradient(135deg, $gold 0%, $pink 100%)
+
+.hero-card
+  color: $tang
+  background-color: #ffffffe0
+  border-radius: 4px
+
+.is-accent-text, .title
   font-family: 'Rancho', 'Comic Sans', sans-serif
 
-.is-text
+.is-normal-text
   font-family: 'Lato', 'Comic Sans', sans-serif
 
 .no-pad-bot
@@ -71,7 +96,18 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   padding-bottom: 10px
 
 .main-logo
-  height: 200px
+  position: absolute
+  left: 10vw
+  max-height: 200px
+  width: auto
+  height: auto
 
 .footer-logo
   height: 100px
+
+.half-triangle
+  position: absolute 
+  width: 0;
+  height: 0;
+  border-top: 200px solid $navbar-background-color
+  border-right: 100vw solid transparent

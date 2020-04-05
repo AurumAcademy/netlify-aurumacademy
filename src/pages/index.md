@@ -1,9 +1,6 @@
 ---
 templateKey: home-page
 title: Aurum Academy
-meta_title: Home | Aurum Academy
-meta_description: >-
-  Online STEM classes offered by students, for students.
 heading: Welcome to Aurum Academy
 description: >-
   Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
@@ -18,24 +15,24 @@ classes:
   - name: Backyard Ballistics 
     image: /svg/wrench.svg
     text: >-
-      Sed quis egestas libero. Vestibulum nec venenatis ligula. 
+      Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
     items:
-      - item 1
-      - item 2
+      - 'Target: 4th-6th'
+      - 'Estimate: $$'
   - name: Robotics Basics 
     image: /svg/sam.svg
     text: >-
-      Sed quis egestas libero. Vestibulum nec venenatis ligula. 
+      Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
     items:
-      - item 1
-      - item 2
+      - 'Target: 7th-9th'
+      - 'Estimate: $$$'
   - name: Project Code
     image: /svg/code.svg
     text: >-
-      Sed quis egestas libero. Vestibulum nec venenatis ligula. 
+      Project Code is a creative programming course where you can learn how to code by making something awesome! 
     items:
-      - item 1
-      - item 2
+      - 'Target: 4th-9th'
+      - 'Estimate: $'
 register:
   - text: Let's go learn some cool things!
     button: Register

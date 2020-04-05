@@ -40,8 +40,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        meta_title
-        meta_description
       }
     }
   }

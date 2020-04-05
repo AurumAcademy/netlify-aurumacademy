@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
 
-const NavBar = ({ toggleNavbar, isActive }) => (
+const NavBar = ({ toggleNavbar, isActive, hideLogo }) => (
   <StaticQuery
     query={graphql`
             query SearchIndexQuery {
@@ -12,11 +12,10 @@ const NavBar = ({ toggleNavbar, isActive }) => (
             }
         `}
     render={data => (
-      <nav className='navbar' aria-label='main navigation'>
+      <nav className='navbar is-dark' aria-label='main navigation'>
         <div className='navbar-brand'>
           <Link to='/' className='navbar-item'>
-            <img className="logo-icon" src="/img/icon.png"></img>
-            {/* <img src="img/logo-long.png"></img> */}
+            {hideLogo ? '' : <img className="logo-icon" src="/img/icon.png"/> }
           </Link>
           <div role="button" aria-label="menu"
             className={`navbar-burger ${isActive ? 'is-active' : ''}`}

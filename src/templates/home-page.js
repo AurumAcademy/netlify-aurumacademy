@@ -10,17 +10,24 @@ const HomePage = ({ data }) => {
   console.log(frontmatter)
 
   return (
-    <Layout>
-      <section className='hero is-dark is-medium'>
+    <Layout hideLogo={true}>
+      {/* <section className='hero is-accent is-fullheight'> */}
+      <section className='hero is-accent is-medium'>
+        <div className='half-triangle'></div>
+        <img className='main-logo' src='img/logo.png' alt='Aurum Academy'></img>
         <div className='hero-body'>
           <div className='container'>
-            <div className='columns'>
-              <div className='column is-10 is-offset-1'>
-                <div className='section'>
-                  <h1 className='title has-text-centered'>
-                    <img className='main-logo' src='img/logo.png' alt='Aurum Academy'></img>
-                  </h1>
-                </div>
+              <div className='columns'>
+                <div className='column'></div>
+                <div className='column is-two-thirds'>
+
+                  {/* <div className='hero-card'>
+                    <div className='section'>
+                      <h1 className='is-size-1'>We are very cool</h1>
+                      <h2 className='is-size-2'>Just believe it</h2>
+                    </div>
+                  </div> */}
+
               </div>
             </div>
           </div>
@@ -33,7 +40,7 @@ const HomePage = ({ data }) => {
 
       <section className='section has-text-centered'>
         <div className='container'>
-          <h1 className='is-size-1 is-accent'>{frontmatter.register[0].text}</h1>
+          <h1 className='is-size-1 is-accent-text'>{frontmatter.register[0].text}</h1>
           <Link className='button is-primary is-large' to='/register'>{frontmatter.register[0].button}</Link>
         </div>
       </section>

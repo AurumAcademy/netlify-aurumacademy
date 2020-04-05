@@ -4,7 +4,7 @@ import config from '../../../config'
 
 const Footer = () => {
   return (
-    <footer className='footer'>
+    <footer className='footer is-dark'>
       <div className='container'>
 
           <div className='columns'>
@@ -22,9 +22,10 @@ const Footer = () => {
 
             <div className='column'>
               <h4 className='is-size-4'>Company</h4>
+              <p><Link to='/about'>About</Link></p>
+              <p><Link to='/blog'>Blog</Link></p>
               <p><Link to='/legal/terms'>Terms and Conditions</Link></p>
               <p><Link to='/legal/privacy'>Privacy Policy</Link></p>
-              <p><Link to='/blog'>Blog</Link></p>
             </div>
 
             <div className='column'>
