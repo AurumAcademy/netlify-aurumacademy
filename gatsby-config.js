@@ -48,6 +48,14 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: `<img src='svg/link.svg'/>`,
+              className: `autolink`,
+              isIconAfterHeader: false,
+            },
+          },
+          {
             resolve: 'gatsby-remark-relative-images',
             options: {
               name: 'uploads',

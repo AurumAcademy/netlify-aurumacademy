@@ -7,31 +7,18 @@ import Plans from '../components/Plans'
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
-  console.log(frontmatter)
-
   return (
     <Layout hideLogo={true}>
-      {/* <section className='hero is-accent is-fullheight'> */}
-      <section className='hero is-accent is-medium-stagnant'>
+      <section className='hero is-accent is-stagnant'>
+        <img className='hero-background-image' src={frontmatter.image} />
         <div className='half-triangle'></div>
         <img className='main-logo' src='img/logo.png' alt='Aurum Academy'></img>
-        <div className='hero-body'>
-          <div className='container'>
-              <div className='columns'>
-                <div className='column'></div>
-                <div className='column is-two-thirds'>
 
-                  {/* <div className='hero-card'>
-                    <div className='section'>
-                      <h1 className='is-size-1'>We are very cool</h1>
-                      <h2 className='is-size-2'>Just believe it</h2>
-                    </div>
-                  </div> */}
-
-              </div>
-            </div>
-          </div>
+        <div className='hero-text has-text-accent small-line-height'>
+          <h1 className='is-size-1'>{frontmatter.hero[0].title}</h1>
+          <h2 className='is-size-2'>{frontmatter.hero[0].subtitle}</h2>
         </div>
+
       </section>
 
       <section className='section no-pad-bot'>
@@ -40,11 +27,10 @@ const HomePage = ({ data }) => {
 
       <section className='section has-text-centered'>
         <div className='container'>
-          <h1 className='is-size-1 is-accent-text'>{frontmatter.register[0].text}</h1>
+          <h1 className='is-size-1 has-text-accent'>{frontmatter.register[0].text}</h1>
           <Link className='button is-primary is-large' to='/register'>{frontmatter.register[0].button}</Link>
         </div>
       </section>
-
 
     </Layout>
   )
@@ -64,12 +50,10 @@ export const pageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        heading
-        description
-        blurbs {
+        image
+        hero {
           title
-          image
-          text
+          subtitle
         }
         classes {
           name

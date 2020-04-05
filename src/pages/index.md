@@ -1,16 +1,9 @@
 ---
 templateKey: home-page
-title: Aurum Academy
-heading: Welcome to Aurum Academy
-description: >-
-  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-  adipisci velit...
-blurbs:
-  - title: What we do
-    image: /img/coffee.png
-    text: >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus 
-      Nullam et dui interdum, varius nibh eu, efficitur metus.
+image: img/stock-robot-girl-1.jpg
+hero:
+  - title: We are really cool
+    subtitle: Also we want money
 classes:
   - name: Backyard Ballistics 
     image: /svg/wrench.svg

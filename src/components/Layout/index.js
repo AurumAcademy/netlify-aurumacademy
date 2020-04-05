@@ -36,6 +36,8 @@ class Layout extends React.Component {
           <title>{title}</title>
           <meta name='title' content={title} />
           <meta name='description' content={description} />
+          <meta name='copyright' content={config.copyright} />
+          <meta name='url' content={config.siteUrl} />
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={this.toggleNavbar} hideLogo={this.props.hideLogo} />
         <div id='content-wrapper'>

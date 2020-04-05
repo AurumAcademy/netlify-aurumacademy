@@ -1,21 +1,24 @@
 $gold: #ffd900
-$tang: #ff8800
+// $tang: #ff8800
 $pink: #ff3388
 $dark: #222222
+$darker: #111111
+$stagnant-hero-height: 600px
 
-$primary: $tang
+$primary: $pink
 $primary-invert: #ffffff
-$link: $tang
+$link: $pink
 $link-hover: $gold
-$family-primary: 'Lato', 'Comic Sans', sans-serif
+$family-primary: 'Cabin', sans-serif
+$family-accent: 'Comic Neue', 'Comic Sans', sans-serif
 $custom-colors: ('gold': $gold)
 
 $navbar-background-color: $dark
-$navbar-item-color: $gold
+$navbar-item-color: $primary-invert
 $navbar-item-hover-color: $dark
 $navbar-item-hover-background-color: $gold
-// $navbar-item-active-color: $dark
-// $navbar-item-active-background-color: $gold
+$navbar-item-active-color: $dark
+$navbar-item-active-background-color: $gold
 $navbar-height: 4rem
 $navbar-item-img-max-height: 2.5rem
 
@@ -24,7 +27,7 @@ $footer-background-color: $navbar-background-color
 
 
 @import "~bulma"
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Comic+Neue:wght@400;700&display=swap');
 
 html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   height: 100%
@@ -52,47 +55,116 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
     margin-bottom: 1.5rem
     margin-top: 0
 
+
+h1, h2, h3, h4, h5, h6
+  &:hover .autolink.before
+    opacity: 1;
+
+.autolink.before
+  top: -6px
+  opacity: 0;
+
 .is-image-centered
   margin-left: auto;
   margin-right: auto;
 
-.is-dark a, .is-dark .is-primary
-  color: $gold !important
-  border-color: $gold !important
+.is-dark
+  a, .button.is-primary.is-outlined
+    color: $gold
+    border-color: $gold
+  .button.is-primary.is-outlined:hover
+    color: $dark
+    border-color: $gold
+    background-color: $gold
 
-.is-dark .button.is-primary:hover
-  color: $dark !important
-  background-color: $gold
+
+// navbar
+
+.navbar-menu.is-sidenav
+  background-color: $navbar-background-color
+  height: 100%
+  position: fixed
+  z-index: 1
+  top: 0
+  right: 0
+  width: 0 
+  padding-top: 60px
+  overflow-x: hidden
+  transition: width 0.5s ease-in
+
+.navbar-menu.is-sidenav.is-active
+  width: 200px
+
+.navbar-menu.is-sidenav
+  .navbar-item, .navbar-link
+    color: $primary-invert
+    &:hover
+      color: $dark
+
+.navbar.is-dark .navbar-end .navbar-link::after
+  border-color: $primary
 
 .navbar.is-dark .navbar-burger
   color: $gold
+
+.navbar-burger.is-active
+  z-index: 2
+  top: 0
+  right: 0
+  position: fixed
+
+.navbar.is-dark .navbar-dropdown
+  color: $primary-invert
+  background-color: $dark
+
 
 .has-text-white *
   color: white !important
 
 .hero.is-accent
   color: white
-  background: linear-gradient(165deg, $gold 35%, $pink 100%)
+  background: linear-gradient(160deg, $gold 35%, $pink 80%)
 
-.hero.is-medium-stagnant
-  height: 288px
+.hero-background-image
+  object-fit: cover
+  max-width: none
+  height: inherit
+  opacity: 0.2
 
-.hero-card
-  color: $tang
-  background-color: #ffffffe0
-  border-radius: 4px
+.hero.is-stagnant
+  height: $stagnant-hero-height
 
-.is-accent-text, .title
-  font-family: 'Rancho', 'Comic Sans', sans-serif
+.hero.is-stagnant .hero-text
+  position: absolute
+  padding: 20px 5vw 20px 40px
+  top: $stagnant-hero-height - 100px
+  right: 0
+  padding-right: 5vw
+  background-color: white
+  color: $pink
+  text-align: right
+  // border: solid 4px white
+  // border-radius: 4px
 
-.is-normal-text
-  font-family: 'Lato', 'Comic Sans', sans-serif
+.has-text-accent, .title
+  font-family: $family-accent
+
+.has-text-normal
+  font-family: $family-primary
+
+.has-small-padding
+  padding: 6px
 
 .no-pad-bot
   padding-bottom: 0
 
 .no-pad-top
   padding-top: 0
+
+.has-flex-right
+  display: flex
+  justify-content: flex-end
+  flex: 1
 
 .small-line-height
   line-height: 1

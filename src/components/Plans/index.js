@@ -7,14 +7,14 @@ const Plans = ({ data }) => (
       <div key={plan.name} className='column'>
         <section className='section no-pad-top no-pad-bot'>
           <img className='image is-96x96 is-image-centered' src={plan.image}></img>
-          <h2 className='is-size-3 has-text-weight-bold has-text-primary has-text-centered small-line-height'>
+          <h2 className='is-size-3 has-text-accent has-text-weight-bold has-text-primary has-text-centered small-line-height'>
             {plan.name}
           </h2>
           <div className=''>
-            <p className='has-text-weight-semibold'>{plan.text}</p>
-            <ul>
+            <p className='is-size-6'>{plan.text}</p>
+            <ul className='has-small-padding has-text-centered is-dash'>
               {plan.items.map(item => (
-                <li key={item} className='is-size-5'>
+                <li key={item} className='is-size-6 has-text-weight-semibold'>
                   {item}
                 </li>
               ))}
