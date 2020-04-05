@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 const Plans = ({ data }) => (
   <div className='columns'>
     {data.map(plan => (
-      <div key={plan.name} className='column' style={{ border: '1px solid #eaecee' }}>
-        <section className='section'>
+      <div key={plan.name} className='column'>
+        <section className='section no-pad-top no-pad-bot'>
           <img className='image is-96x96 is-image-centered' src={plan.image}></img>
           <h2 className='is-size-3 has-text-weight-bold has-text-primary has-text-centered small-line-height'>
             {plan.name}

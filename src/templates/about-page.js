@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
+import Blurbs from '../components/Blurbs'
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -13,7 +14,7 @@ const AboutPage = ({ data }) => {
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <HTMLContent content={post.html} />
-              <hr />
+              <Blurbs data={post.frontmatter.blurbs}/>
             </div>
           </div>
         </div>
@@ -41,8 +42,11 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        meta_title
-        meta_description
+        blurbs {
+          title
+          image
+          text
+        }
       }
     }
   }

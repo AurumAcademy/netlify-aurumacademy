@@ -1,5 +1,5 @@
 ---
-templateKey: 'home-page'
+templateKey: home-page
 title: Aurum Academy
 meta_title: Home | Aurum Academy
 meta_description: >-
@@ -36,4 +36,7 @@ classes:
     items:
       - item 1
       - item 2
+register:
+  - text: Let's go learn some cool things!
+    button: Register
 ---

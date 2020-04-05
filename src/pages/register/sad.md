@@ -1,6 +1,6 @@
 ---
-templateKey: 'redirect-page'
-title: :( 
+templateKey: redirect-page
+title: ':(' 
 ---
 ## :( oh no
 Seems like the server doesn't feel like working today.

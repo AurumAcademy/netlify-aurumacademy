@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BigInfo = ({ gridItems }) => (
+const Blurbs = ({ data }) => (
   <div className='columns is-multiline'>
-    {gridItems.map(item => (
+    {data.map(item => (
       <div key={item.image} className='column is-6' style={{ borderRadius: '5px' }}>
         <section className='section'>
           <p className='has-text-centered'>
@@ -16,8 +16,8 @@ const BigInfo = ({ gridItems }) => (
   </div>
 )
 
-BigInfo.propTypes = {
-  gridItems: PropTypes.arrayOf(
+Blurbs.propTypes = {
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
       text: PropTypes.string,
@@ -25,4 +25,4 @@ BigInfo.propTypes = {
   ),
 }
 
-export default BigInfo 
+export default Blurbs 

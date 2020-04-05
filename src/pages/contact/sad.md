@@ -1,6 +1,6 @@
 ---
 templateKey: 'redirect-page'
-title: :( 
+title: ':(' 
 ---
 ## :( oops
 Something went wrong and we couldn't send the message.

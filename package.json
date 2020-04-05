@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-business",
-  "version": "2.1.2",
-  "description": "Gatsby Business Website Starter",
+  "name": "aurum-academy",
+  "version": "0.0.2",
+  "description": "Aurum Academy website",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
@@ -12,9 +12,9 @@
     "lint:fix": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/"
   },
-  "repository": "https://github.com/v4iv/gatsby-starter-business",
-  "author": "Vaibhav Sharma <vaibhavsharmaatwork@gmail.com>",
-  "license": "MIT",
+  "repository": "https://github.com/milotrince/netlify-aurumacademy",
+  "author": "",
+  "license": "",
   "private": false,
   "remarkConfig": {
     "plugins": [
