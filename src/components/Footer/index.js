@@ -7,6 +7,8 @@ const Footer = () => {
     <footer className='footer is-dark'>
       <div className='container'>
 
+        <section className='section no-pad-top'>
+
           <div className='columns'>
             <div className='column'>
               <h4 className='is-size-4'>Contact</h4>
@@ -36,7 +38,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <p className='has-text-centered'>{config.copyright}</p>
+        </section>
+
+        <p className='has-text-centered'>{config.copyright}</p>
 
       </div>
     </footer>

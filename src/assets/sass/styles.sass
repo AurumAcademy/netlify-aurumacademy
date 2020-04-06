@@ -1,9 +1,9 @@
 $gold: #ffd900
-// $tang: #ff8800
+$tang: #ff8800
 $pink: #ff3388
 $dark: #222222
 $darker: #111111
-$stagnant-hero-height: 600px
+$stagnant-hero-height: 500px
 
 $primary: $pink
 $primary-invert: #ffffff
@@ -27,7 +27,7 @@ $footer-background-color: $navbar-background-color
 
 
 @import "~bulma"
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Comic+Neue:wght@400;700&display=swap')
 
 html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   height: 100%
@@ -58,48 +58,61 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
 
 h1, h2, h3, h4, h5, h6
   &:hover .autolink.before
-    opacity: 1;
+    opacity: 1
 
 .autolink.before
   top: -6px
-  opacity: 0;
+  opacity: 0
+
+.has-align-bottom
+  padding-bottom: 0 !important
+
+.is-align-bottom
+  margin-top: auto
 
 .is-image-centered
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto
+  margin-right: auto
 
 .is-dark
   a, .button.is-primary.is-outlined
     color: $gold
     border-color: $gold
+  &.footer a:hover
+    text-decoration: underline
   .button.is-primary.is-outlined:hover
     color: $dark
     border-color: $gold
     background-color: $gold
+  &.navbar .navbar-dropdown
+    background-color: $dark
+    .navbar-item
+      color: $primary-invert
+      &:hover
+        color: $dark
+        background-color: $gold
 
 
 // navbar
 
-.navbar-menu.is-sidenav
-  background-color: $navbar-background-color
-  height: 100%
-  position: fixed
-  z-index: 1
-  top: 0
-  right: 0
-  width: 0 
-  padding-top: 60px
-  overflow-x: hidden
-  transition: width 0.5s ease-in
-
-.navbar-menu.is-sidenav.is-active
-  width: 200px
-
-.navbar-menu.is-sidenav
-  .navbar-item, .navbar-link
-    color: $primary-invert
-    &:hover
-      color: $dark
+@media (max-width: 1024px)
+  .navbar-menu.is-sidenav
+    background-color: $navbar-background-color
+    height: 100%
+    position: fixed
+    z-index: 1
+    top: 0
+    right: 0
+    width: 0 
+    padding-top: 60px
+    overflow-x: hidden
+    transition: width 0.5s ease-in
+    &.is-active
+      width: 200px
+    & .navbar-item, .navbar-link
+      color: $primary-invert
+      &:hover
+        color: $dark
 
 .navbar.is-dark .navbar-end .navbar-link::after
   border-color: $primary
@@ -113,23 +126,21 @@ h1, h2, h3, h4, h5, h6
   right: 0
   position: fixed
 
-.navbar.is-dark .navbar-dropdown
-  color: $primary-invert
-  background-color: $dark
-
+.has-text-dark
+  color: dark !important
 
 .has-text-white *
   color: white !important
 
 .hero.is-accent
   color: white
-  background: linear-gradient(160deg, $gold 35%, $pink 80%)
+  background: linear-gradient(160deg, $gold 35%, $pink 100%)
 
 .hero-background-image
   object-fit: cover
   max-width: none
   height: inherit
-  opacity: 0.2
+  opacity: 0.1
 
 .hero.is-stagnant
   height: $stagnant-hero-height
@@ -137,14 +148,11 @@ h1, h2, h3, h4, h5, h6
 .hero.is-stagnant .hero-text
   position: absolute
   padding: 20px 5vw 20px 40px
-  top: $stagnant-hero-height - 100px
+  top: $stagnant-hero-height * 2/3 
   right: 0
   padding-right: 5vw
-  background-color: white
-  color: $pink
+  color: white
   text-align: right
-  // border: solid 4px white
-  // border-radius: 4px
 
 .has-text-accent, .title
   font-family: $family-accent
@@ -180,9 +188,17 @@ h1, h2, h3, h4, h5, h6
 .footer-logo
   height: 100px
 
-.half-triangle
+.top-triangle
   position: absolute 
-  width: 0;
-  height: 0;
+  width: 0
+  height: 0
   border-top: 200px solid $navbar-background-color
-  border-right: 100vw solid transparent
+  &.is-left
+    border-right: 100vw solid transparent
+  &.is-right
+    border-left: 100vw solid transparent
+
+.bio-link-icon
+  height: 36px
+  width: 36px
+  padding-left: 8px

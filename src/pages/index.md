@@ -1,9 +1,9 @@
 ---
 templateKey: home-page
-image: img/stock-robot-girl-1.jpg
+image: img/robot.png
 hero:
-  - title: We are really cool
-    subtitle: Also we want money
+  - title: We teach valuable engineering skills.
+    subtitle: Online classes for young students.
 classes:
   - name: Backyard Ballistics 
     image: /svg/wrench.svg

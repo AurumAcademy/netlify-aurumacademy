@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import BioCard from '../components/BioCard'
 
-const AboutPage = ({ data }) => {
+const ClassPage = ({ data }) => {
 
   console.log(data)
 
@@ -40,16 +40,16 @@ const AboutPage = ({ data }) => {
   )
 }
 
-AboutPage.propTypes = {
+ClassPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default AboutPage 
+export default ClassPage
 
 export const pageQuery = graphql`
-  query AboutPage($id: String!) {
+  query ClassPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

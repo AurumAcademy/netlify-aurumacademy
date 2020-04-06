@@ -1,13 +1,18 @@
 ---
-templateKey: about-page
+templateKey: class-page
 title: About
 bios:
-  - name: Trinity
-    image: /svg/sam.svg
+  - name: Trinity Chung
+    image: /img/trinity.png
+    links:
+      - label: GitHub
+        image: /svg/github.svg
+        link: https://github.com/milotrince
+      - label: Email 
+        image: /svg/email.svg
+        link: 'mailto:trinity@aurumacademy.tech'
     text: >-
-      Trinity Chung is the full stack developer and coding teacher at Aurum. She loves coding cool things (like this site!), making music, and playing with kids.
-
-
+      Trinity is the full stack developer and coding teacher at Aurum. She loves coding cool things (like this site!), making music, and playing with kids. Her dream job is one where she can make money by sitting at a computer all day talking with smart people. Wait, she already does that.
 ---
 
 # Project Code

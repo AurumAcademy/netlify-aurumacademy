@@ -2,18 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const BioCard = ({ data }) => (
-  <div class='box'>
-    <div class='media'>
-      <div class='media-left'>
-          <img className='image is-128x128' src={data.image ? data.image : 'https://placekitten.com/200/200'} alt='Image'/>
+  <div className='box'>
+    <div className='media'>
+      <div className='media-left'>
+          <img className='image bio-pic is-128x128' src={data.image ? data.image : 'https://placekitten.com/200/200'} alt='Image'/>
       </div>
-      <div class='media-content'>
-        <div class='content'>
+      <div className='media-content'>
+        <div className='content'>
+          <p className='level'>
+            <strong className='level-left'>{data.name}</strong>
+            <div className='level-right'>
+            {
+              data.links.map((item) => {
+                return <a href={item.link}>
+                  {item.image ? <img src={item.image} aria-label={item.label} alt={item.label} className='bio-link-icon'/> : item.label}
+                </a>
+              })
+            }
+            </div>
+          </p>
           <p>
-            <strong>{data.name}</strong> <small>{data.contact ? data.contact : ''}</small>
-            <br/>
             {data.text}
           </p>
+
         </div>
       </div>
     </div>
@@ -24,6 +35,7 @@ BioCard.propTypes = {
   data: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
+    links: PropTypes.array,
     text: PropTypes.string,
   }),
 }

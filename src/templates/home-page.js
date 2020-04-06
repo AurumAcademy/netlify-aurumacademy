@@ -11,14 +11,12 @@ const HomePage = ({ data }) => {
     <Layout hideLogo={true}>
       <section className='hero is-accent is-stagnant'>
         <img className='hero-background-image' src={frontmatter.image} />
-        <div className='half-triangle'></div>
+        <div className='top-triangle is-left'></div>
         <img className='main-logo' src='img/logo.png' alt='Aurum Academy'></img>
-
         <div className='hero-text has-text-accent small-line-height'>
-          <h1 className='is-size-1'>{frontmatter.hero[0].title}</h1>
+          <h1 className='is-size-1 has-text-weight-semibold'>{frontmatter.hero[0].title}</h1>
           <h2 className='is-size-2'>{frontmatter.hero[0].subtitle}</h2>
         </div>
-
       </section>
 
       <section className='section no-pad-bot'>
