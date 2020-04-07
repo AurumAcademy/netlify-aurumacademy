@@ -3,12 +3,13 @@ $tang: #ff8800
 $pink: #ff3388
 $dark: #222222
 $darker: #111111
-$stagnant-hero-height: 500px
+$pinker: #df005d
+$stagnant-hero-height: 30rem
 
 $primary: $pink
 $primary-invert: #ffffff
 $link: $pink
-$link-hover: $gold
+$link-hover: $pinker
 $family-primary: 'Cabin', sans-serif
 $family-accent: 'Comic Neue', 'Comic Sans', sans-serif
 $custom-colors: ('gold': $gold)
@@ -21,6 +22,7 @@ $navbar-item-active-color: $dark
 $navbar-item-active-background-color: $gold
 $navbar-height: 4rem
 $navbar-item-img-max-height: 2.5rem
+$sidenav-width: 200px
 
 $footer-color: $primary-invert
 $footer-background-color: $navbar-background-color
@@ -94,22 +96,43 @@ h1, h2, h3, h4, h5, h6
 
 
 // navbar
+.navbar-menu.is-sidenav
+  transition: transform 0.5s
+  overflow-x: hidden
+
+.has-dark-overlay-toggle::after
+  content: ""
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: $dark
+  opacity: 0
+  transition: opacity 0.4s
+  pointer-events: none
 
 @media (max-width: 1024px)
+  .has-dark-overlay-toggle.is-overlay-active::after
+    opacity: 0.5
+
   .navbar-menu.is-sidenav
     background-color: $navbar-background-color
+    top: 0
+    right: 0
+    width: $sidenav-width
+    padding-top: 60px
     height: 100%
     position: fixed
     z-index: 1
-    top: 0
-    right: 0
-    width: 0 
-    padding-top: 60px
-    overflow-x: hidden
-    transition: width 0.5s ease-in
-    &.is-active
-      width: 200px
+    text-align: right
+    transform: translateX(100%)
+
+    &.is-sidenav-active
+      transform: translateX(0)
+
     & .navbar-item, .navbar-link
+      overflow-x: hidden
       color: $primary-invert
       &:hover
         color: $dark
@@ -120,11 +143,14 @@ h1, h2, h3, h4, h5, h6
 .navbar.is-dark .navbar-burger
   color: $gold
 
-.navbar-burger.is-active
+.navbar-burger
   z-index: 2
-  top: 0
-  right: 0
-  position: fixed
+  &.is-active
+    top: 0
+    right: 0
+    position: fixed
+  span
+    z-index: 2
 
 .has-text-dark
   color: dark !important
@@ -146,11 +172,12 @@ h1, h2, h3, h4, h5, h6
   height: $stagnant-hero-height
 
 .hero.is-stagnant .hero-text
+  transform: translateY(-100%)
   position: absolute
-  padding: 20px 5vw 20px 40px
-  top: $stagnant-hero-height * 2/3 
+  top: $stagnant-hero-height + $navbar-height
+  // top: $stagnant-hero-height * 2/3 
   right: 0
-  padding-right: 5vw
+  padding: 20px 5vw 20px 40px
   color: white
   text-align: right
 

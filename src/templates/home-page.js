@@ -55,6 +55,7 @@ export const pageQuery = graphql`
         }
         classes {
           name
+          page
           image
           text
           items

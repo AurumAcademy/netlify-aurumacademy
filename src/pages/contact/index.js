@@ -9,6 +9,13 @@ const ContactPage = () => {
       <section className='section'>
         <div className='container'>
           <h1 className='title'>Contact Us</h1>
+
+          <div className='envelope'>
+            <div className='envelope-corner'></div>
+            <div className='envelope-top'></div>
+            <div className='envelope-back'></div>
+          </div>
+
           <ContactForm/>
         </div>
       </section>

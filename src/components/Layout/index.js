@@ -19,19 +19,18 @@ class Layout extends React.Component {
   
   constructor (props) {
     super(props)
-    this.state = { isActive: false }
-    this.toggleNavbar = this.toggleNavbar.bind(this)
+    this.state = { isOverlayActive: false }
   }
 
-  toggleNavbar () {
-    this.setState({ isActive: !this.state.isActive })
+  toggleOverlay = () => {
+    this.setState({ isOverlayActive: !this.state.isOverlayActive })
   }
 
-  render () {
+  render() {
     let title = this.props.title ? this.props.title+' | '+config.siteTitle : config.siteTitle
     let description = this.props.description ? this.props.description : config.siteDescription
     return (
-      <div id='layout-wrapper'>
+      <div id='layout-wrapper'  className={`has-dark-overlay-toggle ${this.state.isOverlayActive ? 'is-overlay-active' : ''}`}>
         <Helmet>
           <title>{title}</title>
           <meta name='title' content={title} />
@@ -39,7 +38,7 @@ class Layout extends React.Component {
           <meta name='copyright' content={config.copyright} />
           <meta name='url' content={config.siteUrl} />
         </Helmet>
-        <NavBar isActive={this.state.isActive} toggleNavbar={this.toggleNavbar} hideLogo={this.props.hideLogo} />
+        <NavBar onToggleSidebar={this.toggleOverlay} hideLogo={this.props.hideLogo} />
         <div id='content-wrapper'>
           {this.props.children}
         </div>
@@ -47,6 +46,7 @@ class Layout extends React.Component {
       </div>
     )
   }
+
 }
 
 export default Layout
