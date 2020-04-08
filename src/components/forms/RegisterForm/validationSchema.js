@@ -4,13 +4,15 @@ const validationSchema = Yup.object().shape({
   gname: Yup.string()
     .required('We need to know who you are!'),
   gemail: Yup.string()
-    .email('Enter a Valid Email!')
+    .email('Valid email, please! Otherwise, your inbox will be met with... silence.')
     .required('We need to know your email so we can reply back!'),
   sname: Yup.string()
     .required('Who will we be teaching?'),
   sgrade: Yup.number()
     .min(1, 'Too small!')
-    .max(12, 'Too big!')
+    .max(12, 'Too big!'),
+  sclass: Yup.string()
+    .notOneOf(['Choose one!'], 'uhoh'),
 })
 
 export default validationSchema

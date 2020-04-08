@@ -7,15 +7,16 @@ import { HTMLContent } from '../components/Content'
 const RedirectPage = ({ data }) => {
   const { markdownRemark: post } = data
   return (
-    <Layout title={post.frontmatter.title}>
+    <Layout title={post.frontmatter.metaTitle}>
       <section className='hero is-accent is-large'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
-                <div className='section is-centered content is-large'>
-                    <HTMLContent className='has-text-dark' content={post.html} />
-                    <Link to="/">Return to home</Link>
+                <div className='section is-centered content is-large has-text-dark'>
+                  <h1 className='has-text-accent'>{post.frontmatter.title}</h1>
+                  <HTMLContent content={post.html}/>
+                  <Link to="/">Return to home</Link>
                 </div>
               </div>
             </div>
@@ -40,6 +41,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        metaTitle
         title
       }
     }

@@ -5,17 +5,15 @@ import RegisterForm from '../../components/forms/RegisterForm'
 const RegisterPage = () => {
   return (
     <Layout title='Register'>
-      <section className='section'>
-
+      <section className='section has-accent-background'>
         <div className='container content'>
           <div className='columns'>
-            <div className='column is-6 is-offset-3'>
-              <h1 className='title'>Register</h1>
+            <div className='column has-medium-padding box is-6 is-offset-3'>
+              <h1 className='title has-text-accent'>Register</h1>
               <RegisterForm/>
             </div>
           </div>
         </div>
-    
       </section>
     </Layout>
   )

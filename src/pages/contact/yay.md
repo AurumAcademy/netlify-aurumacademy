@@ -1,6 +1,6 @@
 ---
 templateKey: 'redirect-page'
-title: 'Registered!'
+metaTitle: 'Sent!'
+title: 'Message sent!'
 ---
-## Message sent!
-Thanks for reaching out. We will reply to you as soon as possible.
+Thanks for reaching out. We'll send a reply as soon as possible.

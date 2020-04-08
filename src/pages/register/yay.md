@@ -1,6 +1,6 @@
 ---
 templateKey: redirect-page
-title: 'Registered!'
+metaTitle: 'Hooray!'
+title: 'Thank you for registering! ♥'
 ---
-## Thank you for registering!
-We will contact you as soon as possible. 
+We sent you an email with more information.

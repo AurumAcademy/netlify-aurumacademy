@@ -3,7 +3,7 @@ $tang: #ff8800
 $pink: #ff3388
 $dark: #222222
 $darker: #111111
-$pinker: #df005d
+$pinker: #ce0056
 $stagnant-hero-height: 30rem
 
 $primary: $pink
@@ -77,6 +77,10 @@ h1, h2, h3, h4, h5, h6
 
 .is-align-bottom
   margin-top: auto
+
+.is-align-center
+  margin-left: auto
+  margin-right: auto
 
 .is-position-relative
   position: relative !important
@@ -166,7 +170,7 @@ h1, h2, h3, h4, h5, h6
 .has-text-white *
   color: white !important
 
-.hero.is-accent
+.has-accent-background
   background: linear-gradient(160deg, $gold 35%, $pink 100%)
 
 .hero
@@ -248,3 +252,25 @@ h1, h2, h3, h4, h5, h6
   height: 36px
   width: 36px
   padding-left: 8px
+
+.label-comment
+  padding-left: 0.3rem
+  font-weight: 400
+  color: #888888
+
+.mail-v
+  margin-left: auto
+  margin-right: auto
+  width: 0
+  height: 0
+  border-top: solid 70px #f0f0f0
+  border-left: solid 120px transparent
+  border-right: solid 120px transparent
+  @media (min-width: 786px)
+    border-top: solid 100px #f0f0f0
+    border-left: solid 200px transparent
+    border-right: solid 200px transparent
+  @media (min-width: 1024px)
+    border-top: solid 100px #f0f0f0
+    border-left: solid 300px transparent
+    border-right: solid 300px transparent

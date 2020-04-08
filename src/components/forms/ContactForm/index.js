@@ -21,8 +21,8 @@ const ContactForm = () => {
           SecureToken: '88137f0a-632f-44c0-bf42-ea28ecdffa18',
           To : 'trinity@aurumacademy.tech',
           From : 'trinity@aurumacademy.tech',
-          Subject : `${values.name} sent a message`,
-          Body : `Email: ${values.email}\n${values.message}`
+          Subject : `[AurumAcademy] ${values.name} sent a message`,
+          Body : `Email: ${values.email}</br>${values.message}`
         })
           .then((response) => {
             if (response === 'OK') {
@@ -34,17 +34,16 @@ const ContactForm = () => {
             }
           })
       }}
-      render={({ errors, touched, isSubmitting, handleSubmit, handleReset }) => (<form
+      render={({ errors, touched, isSubmitting, handleSubmit }) => (<form
         name='contact'
         onSubmit={handleSubmit}
-        onReset={handleReset}
         data-netlify='true'
         data-netlify-honeypot='bot-field'
       >
         <div className='field'>
           <label className='label'>Name</label>
           <div className='control'>
-            <Field className='input' type='text' placeholder='Full Name' name='name' id='name' />
+            <Field className='input' type='text' placeholder='Aurora Aurum' name='name' id='name' />
           </div>
           {touched.name && errors.name && <small className='has-text-danger'>{errors.name}</small>}
         </div>
@@ -52,7 +51,7 @@ const ContactForm = () => {
         <div className='field'>
           <label className='label'>Email</label>
           <div className='control'>
-            <Field className='input' type='email' placeholder='Email' name='email' id='email' />
+            <Field className='input' type='email' placeholder='iamcurious@mail.com' name='email' id='email' />
           </div>
           {touched.email && errors.email && <small className='has-text-danger'>{errors.email}</small>}
         </div>
@@ -60,17 +59,17 @@ const ContactForm = () => {
         <div className='field'>
           <label className='label'>Message</label>
           <div className='control'>
-            <Field className='textarea' component='textarea' placeholder='Message' name='message' id='message' rows='6' />
+            <Field className='textarea' component='textarea' name='message' id='message' rows='5' />
           </div>
           {touched.message && errors.message && <small className='has-text-danger'>{errors.message}</small>}
         </div>
 
         <div className='field is-grouped is-pulled-right'>
-          {/* <div className='control'>
-            <button className='button' type='reset'>Clear</button>
-          </div> */}
           <div className='control'>
-            <button id='' className='button is-primary' type='submit' disabled={isSubmitting}>Send</button>
+            <button className='button is-large' type='submit' disabled={isSubmitting}>
+                <span>Send</span>
+                <img class="icon is-small" src='/svg/send-pink.svg'/>
+            </button>
           </div>
         </div>
       </form>)}

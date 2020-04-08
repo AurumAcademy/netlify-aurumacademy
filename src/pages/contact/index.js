@@ -6,17 +6,15 @@ import { ContactForm } from '../../components/forms/ContactForm'
 const ContactPage = () => {
   return (
     <Layout title='Contact Us'>
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>Contact Us</h1>
-
-          <div className='envelope'>
-            <div className='envelope-corner'></div>
-            <div className='envelope-top'></div>
-            <div className='envelope-back'></div>
+      <section className='section has-accent-background'>
+        <div className='container content'>
+          <div className='columns'>
+            <div className='column has-medium-padding box is-8 is-offset-2'>
+              <div className='mail-v'></div>
+              <h1 className='title has-text-accent'>Send us a message!</h1>
+                <ContactForm/>
+            </div>
           </div>
-
-          <ContactForm/>
         </div>
       </section>
     </Layout>
