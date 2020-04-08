@@ -1,32 +1,18 @@
 ---
 templateKey: class-page
-title: About
+title: Robotics Basics
+link: /classes/robotics-basics
+icon: /svg/sam.svg
+summary: >-
+  Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
+target: 7th-9th
+cost: '$95-$400 + $20/hr'
 bios:
-  - name: Stephen Krider
-    image: /img/stephen.png
-    links:
-      - label: Email 
-        image: /svg/email.svg
-        link: 'mailto:stephen@aurumacademy.tech'
-    text: >-
-      Stephen teaches the building classes here at Aurum. He is the current captain and lead engineer of Golden Gears. His favorite thing to do is designing and building things, as well as teaching others. He will be attending the University of California - Berkeley this fall to study Mechanical Engineering and Business Administration.
-  - name: Trinity Chung
-    image: /img/trinity.png
-    links:
-      - label: GitHub
-        image: /svg/github.svg
-        link: https://github.com/milotrince
-      - label: Email 
-        image: /svg/email.svg
-        link: 'mailto:trinity@aurumacademy.tech'
-    text: >-
-      Trinity is the full stack developer and coding teacher at Aurum. She loves coding cool things (like this site!), making music, and playing with kids. Her dream job is one where she can make money by sitting at a computer all day talking with smart people. Wait, she already does that.
+  - Stephen Krider
+  - Trinity Chung
 ---
 # Robotics Basics
 Robotics Basics condenses many of the basic lessons we’ve learned over our seven years in robotics. Learn how to construct a drivetrain and wiffle-ball launcher using Joynt, a build system (think industrial Legos) we developed ourselves. Learn the basics of electronics and programming bringing your machine to life! (All projects will be indoors-safe)
-
-### Summary
-Target Age Range: 7th-9th, special exceptions allowed
 
 ### Pricing
 * Cost: TBD
@@ -35,13 +21,12 @@ Target Age Range: 7th-9th, special exceptions allowed
   * $400 to buy
   * $20 per child per hour
 
-
 ## Curriculum
 
-### Phase 1: Build drivebase
+### Phase 1: Building the Base
 Using Joynt, put together a basic 2 motor 6wd
 
-### Phase 2 (Optional): Programming a basic TeleOp
+### Phase 2 (Optional): Programming a Basic TeleOp
 do many cool thing
 
 ### Phase 3: Building a Shooter

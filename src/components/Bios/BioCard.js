@@ -9,22 +9,19 @@ const BioCard = ({ data }) => (
       </div>
       <div className='media-content'>
         <div className='content'>
-          <p className='level'>
+          <div className='level no-margin-bot'>
             <strong className='level-left'>{data.name}</strong>
             <div className='level-right'>
             {
               data.links.map((item) => {
                 return <a href={item.link}>
-                  {item.image ? <img src={item.image} aria-label={item.label} alt={item.label} className='bio-link-icon'/> : item.label}
+                  {item.image ? <img key={item.name} src={item.image} aria-label={item.label} alt={item.label} className='bio-link-icon'/> : item.label}
                 </a>
               })
             }
             </div>
-          </p>
-          <p>
-            {data.text}
-          </p>
-
+          </div>
+          <p> {data.text} </p>
         </div>
       </div>
     </div>

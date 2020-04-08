@@ -8,7 +8,7 @@ module.exports = {
   siteRss: '/rss.xml',
   siteFBAppID: '', // FB Application ID for using app insights
   googleTagManagerID: '', // GTM tracking ID.
-  disqusShortname: 'aurum-academy', // Disqus shortname.
+  disqusShortname: 'aurumacademy', // Disqus shortname.
   userName: 'Aurum Academy',
   userTwitter: 'aurumacademy',
   userLocation: 'La Canada, California',

@@ -29,7 +29,6 @@ class NavBar extends React.Component {
     }
   }
 
-
   render() {
     return <StaticQuery
       query={graphql`
@@ -40,9 +39,6 @@ class NavBar extends React.Component {
                       ...GatsbyImageSharpFixed
                     }
                   }
-                }
-                siteSearchIndex {
-                  index
                 }
               }
           `}
@@ -63,7 +59,6 @@ class NavBar extends React.Component {
           <div ref={this.sidebar} className={`navbar-menu is-sidenav is-active ${this.state.isSidebarOpen ? 'is-sidenav-active' : ''}`} id='navMenu'>
 
             <div className='navbar-end'>
-              {/* <SearchBox searchIndex={data.siteSearchIndex.index} /> */}
               <Link className='navbar-item' to='/'>Home</Link>
               <Link className='navbar-item' to='/about'>About</Link>
 

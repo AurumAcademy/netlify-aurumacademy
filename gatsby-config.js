@@ -39,6 +39,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/content`,
+        name: 'content',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/assets/img`,
         name: 'images',
       },
@@ -50,7 +57,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              icon: `<img src='svg/link.svg'/>`,
+              icon: `<img src='/svg/link.svg'/>`,
               className: `autolink`,
               isIconAfterHeader: false,
             },
@@ -137,7 +144,7 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
         enableIdentityWidget: true,
-        htmlTitle: `Gatsby Starter Business Content Manager`,
+        htmlTitle: `Netlify CMS | Aurum Academy`,
       },
     },
     {

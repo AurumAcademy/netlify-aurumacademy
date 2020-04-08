@@ -11,7 +11,7 @@ $primary-invert: #ffffff
 $link: $pink
 $link-hover: $pinker
 $family-primary: 'Cabin', sans-serif
-$family-accent: 'Comic Neue', 'Comic Sans', sans-serif
+$family-accent: 'Zilla Slab', sans-serif
 $custom-colors: ('gold': $gold)
 
 $navbar-background-color: $dark
@@ -29,7 +29,7 @@ $footer-background-color: $navbar-background-color
 
 
 @import "~bulma"
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Comic+Neue:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Zilla+Slab&display=swap')
 
 html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
   height: 100%
@@ -63,14 +63,23 @@ h1, h2, h3, h4, h5, h6
     opacity: 1
 
 .autolink.before
-  top: -6px
   opacity: 0
+  top: -6px
+
+.has-no-list-style
+  list-style: none !important
+
+.has-text-big
+  font-size: 4rem !important
 
 .has-align-bottom
   padding-bottom: 0 !important
 
 .is-align-bottom
   margin-top: auto
+
+.is-position-relative
+  position: relative !important
 
 .is-image-centered
   margin-left: auto
@@ -94,11 +103,9 @@ h1, h2, h3, h4, h5, h6
         color: $dark
         background-color: $gold
 
-
 // navbar
-.navbar-menu.is-sidenav
+.navbar-menu.is-sidenav.is-sidenav-active
   transition: transform 0.5s
-  overflow-x: hidden
 
 .has-dark-overlay-toggle::after
   content: ""
@@ -107,10 +114,11 @@ h1, h2, h3, h4, h5, h6
   bottom: 0
   left: 0
   right: 0
-  background-color: $dark
   opacity: 0
   transition: opacity 0.4s
+  background-color: $dark
   pointer-events: none
+
 
 @media (max-width: 1024px)
   .has-dark-overlay-toggle.is-overlay-active::after
@@ -159,36 +167,48 @@ h1, h2, h3, h4, h5, h6
   color: white !important
 
 .hero.is-accent
-  color: white
   background: linear-gradient(160deg, $gold 35%, $pink 100%)
 
-.hero-background-image
-  object-fit: cover
-  max-width: none
-  height: inherit
-  opacity: 0.1
+.hero
+  &.is-accent
+    background: linear-gradient(160deg, $gold 35%, $pink 100%)
+  &.has-background
+    position: relative
+    overflow: hidden
+  & .hero-background
+    position: absolute
+    z-index: 0
+    object-fit: cover
+    object-position: center center
+    width: 100%
+    height: 100%
+    &.is-transparent
+      opacity: 0.15
+  &.is-stagnant
+    height: $stagnant-hero-height
+    & .hero-text
+      margin-top: auto
+      padding: 20px 5vw 20px 40px
+      color: white
+      text-align: right
 
-.hero.is-stagnant
-  height: $stagnant-hero-height
-
-.hero.is-stagnant .hero-text
-  transform: translateY(-100%)
-  position: absolute
-  top: $stagnant-hero-height + $navbar-height
-  // top: $stagnant-hero-height * 2/3 
-  right: 0
-  padding: 20px 5vw 20px 40px
-  color: white
-  text-align: right
-
-.has-text-accent, .title
+.has-text-accent
   font-family: $family-accent
 
 .has-text-normal
   font-family: $family-primary
 
 .has-small-padding
-  padding: 6px
+  padding: 0.5rem
+
+.has-medium-padding
+  padding: 2rem
+
+.no-margin-left
+  margin-left: 0 !important
+
+.no-margin-bot
+  margin-bottom: 0 !important
 
 .no-pad-bot
   padding-bottom: 0
@@ -203,7 +223,6 @@ h1, h2, h3, h4, h5, h6
 
 .small-line-height
   line-height: 1
-  padding-bottom: 10px
 
 .main-logo
   position: absolute

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
-import BioCard from '../components/BioCard'
+import BioCards from '../components/Bios/BioCards'
 
 const ClassPage = ({ data }) => {
 
@@ -11,12 +11,40 @@ const ClassPage = ({ data }) => {
 
   const { markdownRemark: post } = data
   return (
+
     <Layout title={post.frontmatter.title}>
-      <div className='hero is-medium is-accent'>
-        <div className='hero-body has-align-bottom'>
-            <h1 className='is-size-1 has-text-weight-semibold has-text-centered has-text-accent is-align-bottom'>
-              {post.frontmatter.title}
-            </h1>
+      <div className='hero is-medium is-accent has-background'>
+        <img className='hero-background is-transparent' src={post.frontmatter.image} />
+        <div className='hero-body'>
+          <div className='container content'>
+            <div className='columns'>
+              <div className='column is-offset-1'>
+                  <h1 className='has-text-big has-text-accent has-text-weight-semibold  is-align-bottom'>
+                    {post.frontmatter.title}
+                  </h1>
+              </div>
+              <div className='column'>
+                <div className='box'>
+                  <p>
+                    {post.frontmatter.summary}
+                  </p>
+                  <ul className='has-no-list-style no-margin-left'>
+                    <li>
+                      <a href='#whos-a-fit' className='has-text-weight-semibold'>
+                        Target Grade Level:
+                      </a> {post.frontmatter.target}
+                    </li>
+                    <li>
+                      <a href='#pricing' className='has-text-weight-semibold'>
+                        Cost Estimate:
+                      </a> {post.frontmatter.cost}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className='column is-1'></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -25,13 +53,7 @@ const ClassPage = ({ data }) => {
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <HTMLContent content={post.html} />
-              <section className='section'>
-                {
-                  post.frontmatter.bios.map((bio) => {
-                    return <BioCard data={bio} />
-                  })
-                }
-              </section>
+              <BioCards names={post.frontmatter.bios}/>
             </div>
           </div>
         </div>
@@ -55,16 +77,11 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        bios {
-          name
-          image
-          links {
-            label
-            image
-            link
-          }
-          text
-        }
+        image
+        summary
+        target
+        cost
+        bios
       }
     }
   }
