@@ -1,7 +1,6 @@
 ---
 templateKey: about-page
 title: About Us
-image: /img/stock-computer-boy.jpg
 bios:
   - Stephen Krider
   - Trinity Chung

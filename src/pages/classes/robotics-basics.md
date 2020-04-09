@@ -3,6 +3,7 @@ templateKey: class-page
 title: Robotics Basics
 link: /classes/robotics-basics
 icon: /svg/sam.svg
+image: /img/shooterbot.png
 summary: >-
   Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
 target: 7th-9th
@@ -13,6 +14,9 @@ bios:
 ---
 # Robotics Basics
 Robotics Basics condenses many of the basic lessons we’ve learned over our seven years in robotics. Learn how to construct a drivetrain and wiffle-ball launcher using Joynt, a build system (think industrial Legos) we developed ourselves. Learn the basics of electronics and programming bringing your machine to life! (All projects will be indoors-safe)
+
+### Who's a fit?
+
 
 ### Pricing
 * Cost: TBD

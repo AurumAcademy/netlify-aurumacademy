@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import SearchBox from '../SearchBox'
-import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
+import Logo from './logo'
 
 
 class NavBar extends React.Component {
@@ -32,21 +32,27 @@ class NavBar extends React.Component {
   render() {
     return <StaticQuery
       query={graphql`
-              query {
-                file(relativePath: { eq: "icon.png" }) {
-                  childImageSharp {
-                    fixed(width: 40, height: 40) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
+        query NavbarQuery {
+          markdownRemark(frontmatter: {for: {eq: "navbar"}}) {
+            frontmatter {
+              content {
+                name
+                type
+                link
+                items {
+                  name
+                  link
                 }
               }
-          `}
+            }
+          }
+        }
+      `}
       render={data => (
         <nav className='navbar is-dark' aria-label='main navigation'>
           <div className='navbar-brand'>
             <Link to='/' className='navbar-item'>
-              {this.props.hideLogo ? '' : <Img className="logo-icon" fixed={data.file.childImageSharp.fixed}/> }
+              {this.props.hideLogo ? '' : <Logo/> }
             </Link>
 
             <div role="button" aria-label="menu"
@@ -59,33 +65,39 @@ class NavBar extends React.Component {
           <div ref={this.sidebar} className={`navbar-menu is-sidenav is-active ${this.state.isSidebarOpen ? 'is-sidenav-active' : ''}`} id='navMenu'>
 
             <div className='navbar-end'>
-              <Link className='navbar-item' to='/'>Home</Link>
-              <Link className='navbar-item' to='/about'>About</Link>
 
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link">Classes</a>
-
-                <div className="navbar-dropdown">
-                  <Link className="navbar-item" to='/classes/backyard-ballistics'>
-                    Backyard Ballistics
-                  </Link>
-                  <Link className="navbar-item" to='/classes/robotics-basics'>
-                    Robotics Basics
-                  </Link>
-                  <Link className="navbar-item" to='/classes/project-code'>
-                    Project Code
-                  </Link>
-                </div>
-              </div>
-
-              <div className='navbar-item has-flex-right'>
-                <div className='field is-grouped'>
-                  <p className='control'>
-                    <Link className='button is-primary is-outlined' to='/register'>Register</Link>
-                  </p>
-                </div>
-              </div>
-
+              {
+                data.markdownRemark.frontmatter.content.map(item => {
+                  if (item.type === 'item') {
+                    return <Link className='navbar-item' to={item.link}>{item.name}</Link>
+                  } else if (item.type === 'dropdown') {
+                    return  (
+                      <div className="navbar-item has-dropdown is-hoverable">
+                        <a className="navbar-link">{item.name}</a>
+                        <div className="navbar-dropdown">
+                          {
+                            item.items.map(subItem => (
+                              <Link className="navbar-item" to={subItem.link}>
+                                {subItem.name}
+                              </Link>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    )
+                  } else if (item.type === 'button') {
+                    return <div className='navbar-item has-flex-right'>
+                      <div className='field is-grouped'>
+                        <p className='control'>
+                          <Link className='button is-primary is-outlined' to={item.link}>
+                            {item.name}
+                          </Link>
+                        </p>
+                      </div>
+                    </div>
+                  }
+                })
+              }
             </div>
           </div>
         </nav>

@@ -3,11 +3,11 @@ templateKey: class-page
 title: Project Code
 link: /classes/project-code
 icon: /svg/code.svg
-image: /img/codepattern.png
+image: /img/projectcode.png
 summary: >-
   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
 target: 4th-9th
-cost: '$24/hr'
+cost: '$25/hr'
 bios:
   - Trinity Chung
 ---
@@ -16,11 +16,11 @@ bios:
 
 Project Code is a creative programming course where you can learn how to code by making something awesome! 
 
-Project Code will cover programming basics. Then we will delve into making a project of the student's choice. Project creation will be guided during lessons, but students are also encouraged to work outside of lessons.
+First, we will cover programming basics and good planning/designing practices. Then we will delve into making a project of the student's choice. Project creation will be guided during lessons, and students will be encouraged (but not required) to work outside of lessons.
 
 ### Pricing
 * Cost: TBD
-* Estimate: $20 per child per hour
+* Estimate: $25 per child per hour
 
 ## Curriculum
 
@@ -32,7 +32,6 @@ Project Code will cover programming basics. Then we will delve into making a pro
   * Console Basics
 
 ### Creating an App/Game
-Project will be made in AppLab in https://code.org
 * Planning the product
 * Guided Creation
 

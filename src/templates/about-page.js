@@ -28,7 +28,7 @@ const AboutPage = ({ data }) => {
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <HTMLContent content={post.html} />
-              <BioCards names={post.frontmatter.bios}/>
+              { post.frontmatter.bios && <BioCards names={post.frontmatter.bios}/> }
             </div>
           </div>
         </div>
