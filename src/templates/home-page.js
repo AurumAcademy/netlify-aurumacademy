@@ -7,6 +7,7 @@ import Video from '../components/Video'
 import Classes from '../components/Classes/Classes'
 import PromoVideo from '../assets/vid/promo.mp4'
 import PromoThumbnail from '../assets/img/promo.png'
+import config from '../../config'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -15,7 +16,7 @@ const HomePage = ({ data }) => {
         <section className='hero is-accent is-stagnant has-background'>
           <img className='hero-background is-transparent' src={frontmatter.image} />
           <div className='top-triangle is-left'></div>
-          <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt='Aurum Academy'/>
+          <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt={config.siteTitle}/>
           <div className='is-position-relative is-align-bottom has-medium-padding  has-text-white has-text-right has-text-accent small-line-height'>
             <h1 className='is-size-1 has-text-weight-semibold'>{frontmatter.hero.title}</h1>
             <h2 className='is-size-2'>{frontmatter.hero.subtitle}</h2>
@@ -23,18 +24,10 @@ const HomePage = ({ data }) => {
         </section>
 
         <div className='content container'>
-{/* 
-          <section className='section no-pad-bot columns'>
-            <div className='container column offset-1 is-10'>
-              <div className='box'>
-                <h1 className='has-text-accent'>Welcome to Aurum Academy</h1>
-              </div>
-            </div>
-          </section>
- */}
+
           <section className='section no-pad-bot'>
             <h1 className='has-text-accent has-text-centered is-marginless'>
-              Welcome to Aurum Academy
+              Welcome to {config.siteTitle}
             </h1>
             <Video src={PromoVideo} thumbnail={PromoThumbnail} />
           </section>
