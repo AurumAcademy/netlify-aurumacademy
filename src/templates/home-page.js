@@ -5,6 +5,8 @@ import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Video from '../components/Video'
 import Classes from '../components/Classes/Classes'
+import PromoVideo from '../assets/vid/promo.mp4'
+import PromoThumbnail from '../assets/img/promo.png'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -23,7 +25,7 @@ const HomePage = ({ data }) => {
         <section className='section no-pad-bot'>
           <div className='container has-text-centered'>
             <h1 className='is-size-3 has-text-accent'>Promotional Video</h1>
-            <Video src={frontmatter.video.src} title={frontmatter.video.title} />
+            <Video src={PromoVideo} thumbnail={PromoThumbnail} />
           </div>
         </section>
 
@@ -59,10 +61,6 @@ export const pageQuery = graphql`
         hero {
           title
           subtitle
-        }
-        video {
-          src
-          title
         }
         classes
         register {

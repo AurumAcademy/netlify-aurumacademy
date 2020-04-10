@@ -7,7 +7,7 @@ module.exports = {
   siteDescription: 'Online STEM learning program for students, by students', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml',
   siteFBAppID: '', // FB Application ID for using app insights
-  googleTagManagerID: '', // GTM tracking ID.
+  googleTagManagerID: 'UA-163295472-1', // GTM tracking ID.
   disqusShortname: 'aurumacademy', // Disqus shortname.
   userName: 'Aurum Academy',
   userTwitter: 'aurumacademy',
