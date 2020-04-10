@@ -4,22 +4,22 @@ import Helmet from 'react-helmet'
 import CoverImage from '../../assets/img/cover.png'
 
 const SE0 = ({ title, meta_title, meta_desc }) => {
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
-  const breadcrumbSchemaOrgJSONLD = {
+  const schema = {
     '@context': 'http://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          '@id': config.siteUrl,
-          name: 'Home',
-          image: config.siteUrl + '/icons/icon-512x512.png',
-        },
-      },
-    ],
+    '@type': 'Organization',
+    'logo': config.siteUrl + config.siteLogo,
+    'url': config.siteUrl,
+    'name': config.siteTitle,
+    'telephone': config.phone,
+    'email': config.email,
+    'foundingDate': config.foundingDate,
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'contactType': 'All inquiries',
+      'telephone': config.phone,
+      'email': config.email,
+    }
   }
 
   return (
@@ -30,7 +30,7 @@ const SE0 = ({ title, meta_title, meta_desc }) => {
       <meta name='image' content={CoverImage} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
-        {JSON.stringify(breadcrumbSchemaOrgJSONLD)}
+        {JSON.stringify(schema)}
       </script>
       {/* OpenGraph tags */}
       <meta property='og:url' content={config.siteUrl} />

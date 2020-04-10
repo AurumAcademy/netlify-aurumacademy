@@ -69,15 +69,15 @@ class NavBar extends React.Component {
               {
                 data.markdownRemark.frontmatter.content.map(item => {
                   if (item.type === 'item') {
-                    return <Link className='navbar-item' to={item.link}>{item.name}</Link>
+                    return <Link key={item.name} className='navbar-item' to={item.link}>{item.name}</Link>
                   } else if (item.type === 'dropdown') {
                     return  (
-                      <div className="navbar-item has-dropdown is-hoverable">
+                      <div key={item.name} className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link">{item.name}</a>
                         <div className="navbar-dropdown">
                           {
                             item.items.map(subItem => (
-                              <Link className="navbar-item" to={subItem.link}>
+                              <Link key={subItem.name} className="navbar-item" to={subItem.link}>
                                 {subItem.name}
                               </Link>
                             ))
@@ -86,7 +86,7 @@ class NavBar extends React.Component {
                       </div>
                     )
                   } else if (item.type === 'button') {
-                    return <div className='navbar-item has-flex-right'>
+                    return <div key={item.name} className='navbar-item has-flex-right'>
                       <div className='field is-grouped'>
                         <p className='control'>
                           <Link className='button is-primary is-outlined' to={item.link}>
