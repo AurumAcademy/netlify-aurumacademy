@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import Content from '../components/Content'
 import { Link } from 'gatsby'
-import SE0 from '../components/SEO'
+import BlogSEO from '../components/SEO/BlogSEO'
 import Share from '../components/Share'
 import Disqus from '../components/Disqus'
 import Layout from '../components/Layout'
@@ -18,7 +18,7 @@ const ArticlePage = ({ data }) => {
   return (
     <Layout title={title} description={meta_description}>
       <section className='section'>
-        <SE0
+        <BlogSEO
           title={title}
           meta_title={meta_title}
           meta_desc={meta_description}

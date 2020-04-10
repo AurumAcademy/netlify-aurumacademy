@@ -17,28 +17,38 @@ const HomePage = ({ data }) => {
           <div className='top-triangle is-left'></div>
           <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt='Aurum Academy'/>
           <div className='is-position-relative is-align-bottom has-medium-padding  has-text-white has-text-right has-text-accent small-line-height'>
-            <h1 className='is-size-1 has-text-weight-semibold'>{frontmatter.hero[0].title}</h1>
-            <h2 className='is-size-2'>{frontmatter.hero[0].subtitle}</h2>
+            <h1 className='is-size-1 has-text-weight-semibold'>{frontmatter.hero.title}</h1>
+            <h2 className='is-size-2'>{frontmatter.hero.subtitle}</h2>
           </div>
         </section>
 
-        <section className='section no-pad-bot'>
-          <div className='container has-text-centered'>
-            <h1 className='is-size-3 has-text-accent'>Promotional Video</h1>
+        <div className='content container'>
+{/* 
+          <section className='section no-pad-bot columns'>
+            <div className='container column offset-1 is-10'>
+              <div className='box'>
+                <h1 className='has-text-accent'>Welcome to Aurum Academy</h1>
+              </div>
+            </div>
+          </section>
+ */}
+          <section className='section no-pad-bot'>
+            <h1 className='has-text-accent has-text-centered is-marginless'>
+              Welcome to Aurum Academy
+            </h1>
             <Video src={PromoVideo} thumbnail={PromoThumbnail} />
-          </div>
-        </section>
+          </section>
 
-        <section className='section no-pad-bot'>
-          <Classes names={frontmatter.classes}/>
-        </section>
+          <section className='section no-pad-bot'>
+            <Classes names={frontmatter.classes}/>
+          </section>
 
-        <section className='section has-text-centered'>
-          <div className='container'>
-            <h1 className='is-size-1 has-text-accent'>{frontmatter.register[0].text}</h1>
-            <Link className='button is-primary is-large' to='/register'>{frontmatter.register[0].button}</Link>
-          </div>
-        </section>
+          <section className='section has-text-centered'>
+            <h1 className='is-size-1 has-text-accent has-text-weight-normal'>{frontmatter.register.text}</h1>
+            <Link className='button is-primary is-large' to='/register'>{frontmatter.register.button}</Link>
+          </section>
+        
+        </div>
       </Layout>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import config from '../../../config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
+const BlogSE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
   const postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   const image = config.siteUrl + realPrefix + cover
@@ -100,4 +100,4 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
   )
 }
 
-export default SE0
+export default BlogSE0

@@ -1,10 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import '../../assets/sass/styles.sass'
-import config from '../../../config'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
+import SEO from '../SEO/SEO'
+import config from '../../../config'
+import '../../assets/sass/styles.sass'
 
 class Layout extends React.Component {
   static propTypes = {
@@ -38,6 +39,7 @@ class Layout extends React.Component {
           <meta name='copyright' content={config.copyright} />
           <meta name='url' content={config.siteUrl} />
         </Helmet>
+        <SEO title={title} meta_title={title} description={description} />
         <NavBar onToggleSidebar={this.toggleOverlay} hideLogo={this.props.hideLogo} />
         <div id='content-wrapper'>
           {this.props.children}
