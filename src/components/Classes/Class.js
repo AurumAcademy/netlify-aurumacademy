@@ -22,9 +22,9 @@ const Class = ({data}) => {
       </Helmet>
 
       <img className='image is-96x96 is-image-centered' src={data.icon} />
-      <div className='has-text-centered has-text-accent has-text-weight-bold has-text-primary is-size-3 small-line-height'>
+      <p className='has-text-centered has-text-accent has-text-weight-bold has-text-primary is-size-3 small-line-height'>
         <Link to={data.link}>{data.title}</Link>
-      </div>
+      </p>
       <p className='is-size-6 is-marginless'>{data.summary}</p>
       <ul className='has-small-padding has-text-centered has-no-list-style is-marginless'>
         <li className='is-size-6 has-text-weight-semibold'>

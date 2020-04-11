@@ -59,8 +59,17 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
 
 
 h1, h2, h3, h4, h5, h6
+  letter-spacing: 0.05rem
   &:hover .autolink.before
     opacity: 1
+
+.headings-have-text-accent
+  h1, h2, h3, h4, h5, h6
+    color: $primary
+    font-family: $family-accent
+
+span.avoid-text-wrap
+  display: inline-block
 
 .autolink.before
   opacity: 0
@@ -206,6 +215,9 @@ h1, h2, h3, h4, h5, h6
 .has-medium-padding
   padding: 2rem
 
+.has-big-padding
+  padding: 6rem 4rem 8rem
+
 .no-margin-left
   margin-left: 0 !important
 
@@ -225,6 +237,7 @@ h1, h2, h3, h4, h5, h6
 
 .small-line-height
   line-height: 1
+  margin-bottom: 0.4em !important
 
 .main-logo
   position: absolute

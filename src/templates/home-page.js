@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, StaticQuery, graphql } from 'gatsby'
+import { HTMLContent } from '../components/Content'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Video from '../components/Video'
@@ -25,20 +26,27 @@ const HomePage = ({ data }) => {
 
         <div className='content container'>
 
-          <section className='section no-pad-bot'>
-            <h1 className='has-text-accent has-text-centered is-marginless'>
-              Welcome to {config.siteTitle}
-            </h1>
-            <Video src={PromoVideo} thumbnail={PromoThumbnail} />
+          <section className='section no-pad-bot columns'>
+            <div className='column is-8 is-offset-2 is-size-4 headings-have-text-accent has-text-centered'>
+              <h1>
+                <span className='avoid-text-wrap'>Welcome to</span>&nbsp;
+                <span className='avoid-text-wrap'>Aurum Virtual Academy</span>
+              </h1>
+              <HTMLContent content={data.markdownRemark.html}/>
+              <br/>
+              <Video src={PromoVideo} thumbnail={PromoThumbnail} />
+            </div>
           </section>
 
           <section className='section no-pad-bot'>
             <Classes names={frontmatter.classes}/>
           </section>
 
-          <section className='section has-text-centered'>
+          <section className='section has-text-centered has-big-padding'>
             <h1 className='is-size-1 has-text-accent has-text-weight-normal'>{frontmatter.register.text}</h1>
             <Link className='button is-primary is-large' to='/register'>{frontmatter.register.button}</Link>
+            {/* <h2 className='has-text-accent'>Questions?</h2>
+            <Link className='button is-primary is-medium' to='/contact'>Contact</Link> */}
           </section>
         
         </div>
@@ -59,6 +67,7 @@ export default HomePage
 export const pageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         image
         hero {
