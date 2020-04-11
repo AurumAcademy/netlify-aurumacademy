@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import { HTMLContent } from '../components/Content'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Video from '../components/Video'
@@ -9,6 +8,8 @@ import Classes from '../components/Classes/Classes'
 import PromoVideo from '../assets/vid/promo.mp4'
 import PromoThumbnail from '../assets/img/promo.png'
 import config from '../../config'
+import EachWrap from '../components/TextWrappers/EachWrap'
+import NiceWrap from '../components/TextWrappers/NiceWrap'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -19,7 +20,7 @@ const HomePage = ({ data }) => {
           <div className='top-triangle is-left'></div>
           <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt={config.siteTitle}/>
           <div className='is-position-relative is-align-bottom has-medium-padding  has-text-white has-text-right has-text-accent small-line-height'>
-            <h1 className='is-size-1 has-text-weight-semibold'>{frontmatter.hero.title}</h1>
+            <h1 className='is-size-1 has-text-weight-semibold'><EachWrap text={frontmatter.hero.title}/></h1>
             <h2 className='is-size-2'>{frontmatter.hero.subtitle}</h2>
           </div>
         </section>
@@ -29,10 +30,9 @@ const HomePage = ({ data }) => {
           <section className='section no-pad-bot columns'>
             <div className='column is-8 is-offset-2 is-size-4 headings-have-text-accent has-text-centered'>
               <h1>
-                <span className='avoid-text-wrap'>Welcome to</span>&nbsp;
-                <span className='avoid-text-wrap'>Aurum Virtual Academy</span>
+                <NiceWrap text={frontmatter.welcome}/>
               </h1>
-              <HTMLContent content={data.markdownRemark.html}/>
+              {frontmatter.statement}
               <br/>
               <Video src={PromoVideo} thumbnail={PromoThumbnail} />
             </div>
@@ -67,13 +67,14 @@ export default HomePage
 export const pageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
       frontmatter {
         image
         hero {
           title
           subtitle
         }
+        welcome
+        statement
         classes
         register {
           text

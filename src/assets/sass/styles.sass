@@ -243,6 +243,7 @@ span.avoid-text-wrap
   position: absolute
   z-index: 5
   left: 10vw
+  top: 10px
   max-height: 200px
   width: auto
   height: auto
@@ -277,6 +278,12 @@ span.avoid-text-wrap
   padding-bottom: 20px
   p
     margin-bottom: 0 !important
+
+.each-wrap
+  @media (min-width: 786px)
+    li
+      display: inline-block
+      padding-left: 0.3em
 
 .bio-link-icon
   height: 36px
