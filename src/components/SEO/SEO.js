@@ -5,7 +5,7 @@ import CoverImage from '../../assets/img/cover.png'
 
 const SE0 = ({ title, meta_title, meta_desc }) => {
 
-  const schema = {
+  const organizationSchema = {
     '@context': 'http://schema.org',
     '@type': 'Organization',
     'logo': config.siteUrl + config.siteLogo,
@@ -16,10 +16,26 @@ const SE0 = ({ title, meta_title, meta_desc }) => {
     'foundingDate': config.foundingDate,
     'contactPoint': {
       '@type': 'ContactPoint',
-      'contactType': 'All inquiries',
+      'contactType': 'support',
       'telephone': config.phone,
-      'email': config.email,
-    }
+      'email': config.email
+    },
+   'sameAs': [
+      "https://www.youtube.com/channel/UCRgNypiQlb4ays-dskK9Czg/"
+		]
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: config.siteUrl
+      }
+    ]
   }
 
   return (
@@ -30,7 +46,8 @@ const SE0 = ({ title, meta_title, meta_desc }) => {
       <meta name='image' content={CoverImage} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
-        {JSON.stringify(schema)}
+        {JSON.stringify(organizationSchema)}
+        {/* {JSON.stringify(breadcrumbSchema)} */}
       </script>
       {/* OpenGraph tags */}
       <meta property='og:url' content={config.siteUrl} />

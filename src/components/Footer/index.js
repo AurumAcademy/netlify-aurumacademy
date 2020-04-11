@@ -17,8 +17,8 @@ const Footer = () => {
                   Send a message
                 </Link>
               </p>
-              <p><a href='mailto:hi@aurumacademy.tech'>hi@aurumacademy.tech</a></p>
-              <p><a href='tel:123-456-7890'>123-456-7890</a></p>
+                <p><a href={`mailto:${config.email}`}>{config.email}</a></p>
+                <p><a href={`tel:${config.phone}`}>{config.phone}</a></p>
 
             </div>
 
