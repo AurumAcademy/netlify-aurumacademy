@@ -8,7 +8,7 @@ const RegisterPage = () => {
       <section className='section has-accent-background'>
         <div className='container content'>
           <div className='columns'>
-            <div className='column has-medium-padding box is-6 is-offset-3'>
+            <div className='column has-medium-padding box is-8 is-offset-2'>
               <h1 className='title has-text-accent'>Register</h1>
               <RegisterForm/>
             </div>

@@ -11,6 +11,8 @@ content:
         link: "/about"
       - name: FAQ
         link: "/faq"
+      - name: Contact
+        link: "/contact"
   - name: Classes
     type: dropdown
     items:

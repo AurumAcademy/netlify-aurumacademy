@@ -21,7 +21,7 @@ const HomePage = ({ data }) => {
           <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt={config.siteTitle}/>
           <div className='is-position-relative is-align-bottom has-medium-padding  has-text-white has-text-right has-text-accent small-line-height'>
             <h1 className='is-size-1 has-text-weight-semibold'><EachWrap text={frontmatter.hero.title}/></h1>
-            <h2 className='is-size-2'>{frontmatter.hero.subtitle}</h2>
+            <h2 className='is-size-2'><NiceWrap text={frontmatter.hero.subtitle}/></h2>
           </div>
         </section>
 

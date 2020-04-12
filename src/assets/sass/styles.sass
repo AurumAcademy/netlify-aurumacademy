@@ -1,5 +1,5 @@
 $gold: #ffd900
-$tang: #ff8800
+$tang: #ffa600
 $pink: #ff3388
 $dark: #222222
 $darker: #111111
@@ -12,7 +12,8 @@ $link: $pink
 $link-hover: $pinker
 $family-primary: 'Cabin', sans-serif
 $family-accent: 'Zilla Slab', sans-serif
-$custom-colors: ('gold': $gold)
+// $custom-colors: ('gold': $gold)
+$custom-colors: ('gold': $gold, 'tang': $tang)
 
 $navbar-background-color: $dark
 $navbar-item-color: $primary-invert
@@ -224,6 +225,9 @@ span.avoid-text-wrap
 .no-margin-bot
   margin-bottom: 0 !important
 
+.small-margin-bot
+  margin-bottom: 0.4rem !important
+
 .no-pad-bot
   padding-bottom: 0
 
@@ -311,3 +315,10 @@ span.avoid-text-wrap
     border-top: solid 100px #f0f0f0
     border-left: solid 300px transparent
     border-right: solid 300px transparent
+
+
+.StripeElement--webkit-autofill
+  background: transparent !important
+
+.CardField
+  margin-bottom: 0.4rem
