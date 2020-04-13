@@ -18,10 +18,10 @@ const HomePage = ({ data }) => {
         <section className='hero is-accent is-stagnant has-background'>
           <img className='hero-background is-transparent' src={frontmatter.image} />
           <div className='top-triangle is-left'></div>
-          <Img className='main-logo' fixed={data.file.childImageSharp.fixed} alt={config.siteTitle}/>
+          <Img className='main-logo' fluid={data.file.childImageSharp.fluid} alt={config.siteTitle}/>
           <div className='is-position-relative is-align-bottom has-medium-padding  has-text-white has-text-right has-text-accent small-line-height'>
-            <h1 className='is-size-1 has-text-weight-semibold'><EachWrap text={frontmatter.hero.title}/></h1>
-            <h2 className='is-size-2'><NiceWrap text={frontmatter.hero.subtitle}/></h2>
+            <h1 className='is-size-1 has-text-weight-semibold hero-title'><EachWrap text={frontmatter.hero.title}/></h1>
+            <h2 className='is-size-2 hero-subtitle'><NiceWrap text={frontmatter.hero.subtitle}/></h2>
           </div>
         </section>
 
@@ -84,8 +84,8 @@ export const pageQuery = graphql`
     }
     file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
-        fixed(height: 200) {
-          ...GatsbyImageSharpFixed
+        fluid(maxHeight: 200) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
