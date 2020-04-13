@@ -1,6 +1,7 @@
 $gold: #ffd900
 $tang: #ffa600
 $pink: #ff3388
+// $pink: #138dbd
 $dark: #222222
 $darker: #111111
 $pinker: #ce0056
@@ -60,7 +61,6 @@ html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
 
 
 h1, h2, h3, h4, h5, h6
-  letter-spacing: 0.05rem
   &:hover .autolink.before
     opacity: 1
 
@@ -203,6 +203,10 @@ span.avoid-text-wrap
       padding: 20px 5vw 20px 40px
       color: white
       text-align: right
+    & .hero-title
+    @media (max-width: 786px)
+      & .hero-subtitle
+        font-size: 30px !important
 
 .has-text-accent
   font-family: $family-accent
@@ -248,9 +252,11 @@ span.avoid-text-wrap
   z-index: 5
   left: 10vw
   top: 10px
-  max-height: 200px
-  width: auto
-  height: auto
+  height: 200px
+  width: 300px
+  @media (max-width: 768px)
+    height: 140px
+    width: 200px
 
 .footer-logo
   height: 100px
