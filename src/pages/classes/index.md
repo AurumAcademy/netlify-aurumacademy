@@ -1,6 +1,6 @@
 ---
 templateKey: flow-page
-title: Classes
+title: Classes Overview
 flow:
   - node:
     - title: Project Code

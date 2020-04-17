@@ -22,12 +22,12 @@ content:
         link: "/classes/program-principles"
       - name: Project Code 
         link: "/classes/project-code"
+      - name: Mech Prototyping
+        link: "/classes/mech-prototyping"
       - name: Intro to Robotics
         link: "/classes/robotics-intro"
       - name: Robotics Expanded
         link: "/classes/robotics-expanded"
-      - name: Mech Prototyping
-        link: "/classes/mech-prototyping"
 
   - name: Login or Signup
     user: false

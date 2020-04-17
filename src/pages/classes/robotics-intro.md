@@ -8,6 +8,12 @@ summary: >-
   Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
 target: 7th-9th
 cost: '$95-$400 + $20/hr'
+prereq:
+  - name: Programming Principles
+    link: /program-principles
+  - name: Mechanism Prototyping
+    link: /mech-prototyping
+  - name: Robotics Kit
 bios:
   - Stephen Krider
   - Trinity Chung

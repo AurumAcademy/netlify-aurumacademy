@@ -3,19 +3,21 @@ templateKey: class-page
 title: Robotics Expanded
 link: /classes/robotics-expanded
 icon: /svg/sam.svg
-image: /img/shooterbot.png
+image: /img/robot.png
 summary: >-
   After getting down your robotics fundamentals, challenge yourself by designing your very own creation! 
 target: 7th-9th
-prereq:
-  - Introduction to Robotics
 cost: '$95-$400 + $20/hr'
+prereq:
+  - name: Introduction to Robotics
+    link: /robotics-intro
+  - name: Robotics Kit
 bios:
   - Stephen Krider
   - Trinity Chung
 ---
-# Robotics Basics
-So far, we’ve guided you through a variety of useful and challenging activities, building and tweaking mechanisms that have already been designed. Now is your chance to build something never seen before, and design your own creation. We’ll be there to guide you along the way.
+# Robotics Expanded
+In Introduction to Robotics, we’ve guided you through a variety of useful and challenging activities, building and tweaking mechanisms that have already been designed. Now is your chance to build something never seen before, and design your own creation. We’ll be there to guide you along the way.
 
 Sensors, motors, and computers are just as fundamental to modern society as simple machines were to society a century ago. Introduction to Robotics will teach you about basic robot components and serve as a guide to bringing your creations to life. In it, we will explore how to integrate electronics into our designs, and use programming to control them.
 

@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { stripeCharge } from './utils'
 import { Formik, Field } from 'formik'
 import validationSchema from './validationSchema'
-import FormButtons from '../RegisterForm/FormButtons'
+import FormButtons from '../FormButtons'
 
 const stripePromise = loadStripe("pk_test_Ez1zgMkkKMNBNpAXPS1KnIvc00DCalp86X")
 

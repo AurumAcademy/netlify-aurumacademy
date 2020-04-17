@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import { ArcherContainer, ArcherElement } from 'react-archer'
+import Plans from '../components/forms/PlanForm/Plans'
 
 const FlowPage = ({ data }) => {
   const { markdownRemark: post } = data
@@ -31,6 +32,10 @@ const FlowPage = ({ data }) => {
               <section className='section no-pad-top'>
                 <HTMLContent content={post.html} />
               </section>
+              <section className='section'>
+                <Plans/>
+              </section>
+
 
     <section className='section'>
       <ArcherContainer strokeColor='#999999' >
@@ -38,30 +43,12 @@ const FlowPage = ({ data }) => {
         <div className='archer-row'>
 
           <ArcherElement
-            id="code1"
-            relations={[{
-              targetId: 'code2',
-              targetAnchor: 'top',
-              sourceAnchor: 'bottom'
-            }, {
-              targetId: 'robo1',
-              targetAnchor: 'top',
-              sourceAnchor: 'bottom'
-            }]}
-          >
-            <Link to='/classes/program-principles'>
-              <div className='box flow-box is-code'>
-                Programming Principles
-              </div>
-            </Link>
-          </ArcherElement>
- 
-          <ArcherElement
             id="mech1"
             relations={[{
               targetId: 'robo1',
               targetAnchor: 'top',
-              sourceAnchor: 'bottom'
+              sourceAnchor: 'bottom',
+              style: {strokeColor:'#ffd900'}
             }]}
           >
             <Link to='/classes/mech-prototyping'>
@@ -71,10 +58,52 @@ const FlowPage = ({ data }) => {
             </Link>
           </ArcherElement>
 
+          <ArcherElement
+            id="code1"
+            relations={[{
+              targetId: 'code2',
+              targetAnchor: 'top',
+              sourceAnchor: 'bottom',
+              style: {strokeColor:'#ff3388'}
+            }, {
+              targetId: 'robo1',
+              targetAnchor: 'top',
+              sourceAnchor: 'bottom',
+              style: {strokeColor:'#ffa600'}
+            }]}
+          >
+            <Link to='/classes/program-principles'>
+              <div className='box flow-box is-code'>
+                Programming Principles
+              </div>
+            </Link>
+          </ArcherElement>
+ 
+
         </div>
 
+{/* $gold: #ffd900
+$tang: #ffa600
+$pink: #ff3388 */}
  
         <div className='archer-row'>
+
+          <ArcherElement
+            id="robo1"
+            relations={[{
+              targetId: 'robo2',
+              targetAnchor: 'top',
+              sourceAnchor: 'bottom',
+              style: {strokeColor:'#ffa600'}
+            }]}
+          >
+
+            <Link to='/classes/robotics-intro'>
+              <div className='box flow-box is-robo'>
+                Intro to Robotics
+              </div>
+            </Link>
+          </ArcherElement>
 
           <ArcherElement
             id="code2"
@@ -83,22 +112,6 @@ const FlowPage = ({ data }) => {
             <Link to='/classes/project-code'>
               <div className='box flow-box is-code'>
                 Project Code
-              </div>
-            </Link>
-          </ArcherElement>
-
-          <ArcherElement
-            id="robo1"
-            relations={[{
-              targetId: 'robo2',
-              targetAnchor: 'top',
-              sourceAnchor: 'bottom'
-            }]}
-          >
-
-            <Link to='/classes/robotics-intro'>
-              <div className='box flow-box is-robo'>
-                Intro to Robotics
               </div>
             </Link>
           </ArcherElement>

@@ -65,6 +65,7 @@ export const silentAuth = callback => {
 
 export const handleAuthentication = () => {
   if (!isBrowser) {
+    console.warn('Blocked auth on a non-browser request')
     return
   }
 

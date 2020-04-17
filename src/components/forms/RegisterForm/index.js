@@ -1,6 +1,6 @@
 import React from 'react'
-import StudentForm from './StudentForm'
-import PlanForm from './PlanForm'
+import StudentForm from '../StudentForm'
+import PlanForm from '../PlanForm'
 import StripeForm from '../StripeForm'
 import { getUserMeta } from '../../Client/utils'
 

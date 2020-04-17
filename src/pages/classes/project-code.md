@@ -8,6 +8,9 @@ summary: >-
   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
 target: 4th-9th
 cost: '$20/hr'
+prereq:
+  - name: Programming Principles
+    link: /program-principles
 bios:
   - Trinity Chung
 ---
