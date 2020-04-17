@@ -1,11 +1,11 @@
 $gold: #ffd900
 $tang: #ffa600
 $pink: #ff3388
-// $pink: #138dbd
 $dark: #222222
 $darker: #111111
 $pinker: #ce0056
 $stagnant-hero-height: 30rem
+$light-background: #f5f1ed
 
 $primary: $pink
 $primary-invert: #ffffff
@@ -13,7 +13,6 @@ $link: $pink
 $link-hover: $pinker
 $family-primary: 'Cabin', sans-serif
 $family-accent: 'Zilla Slab', sans-serif
-// $custom-colors: ('gold': $gold)
 $custom-colors: ('gold': $gold, 'tang': $tang)
 
 $navbar-background-color: $dark
@@ -33,7 +32,7 @@ $footer-background-color: $navbar-background-color
 @import "~bulma"
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Zilla+Slab&display=swap')
 
-html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper
+html, body, #___gatsby, #gatsby-focus-wrapper, #layout-wrapper, .is-full-height
   height: 100%
 
 #layout-wrapper
@@ -109,15 +108,30 @@ span.avoid-text-wrap
     color: $dark
     border-color: $gold
     background-color: $gold
-  &.navbar .navbar-dropdown
-    background-color: $dark
-    .navbar-item
-      color: $primary-invert
+  &.navbar
+    .navbar-item.is-accent
+      color: $gold
       &:hover
-        color: $dark
-        background-color: $gold
+        color: $gold
+    .navbar-dropdown
+      background-color: $dark
+      .navbar-item
+        color: $primary-invert
+        &:hover
+          color: $dark
+          background-color: $gold
+    .navbar-end .navbar-link::after
+      border-color: $primary
+    .navbar-burger
+      color: $gold
+      z-index: 2
+      &.is-active
+        top: 0
+        right: 0
+        position: fixed
+      span
+        z-index: 2
 
-// navbar
 .has-dark-overlay-toggle::after
   content: ""
   position: fixed
@@ -151,26 +165,19 @@ span.avoid-text-wrap
     &.is-sidenav-active
       transform: translateX(0)
 
-    & .navbar-item, .navbar-link
+    .navbar-item, .navbar-link
       overflow-x: hidden
       color: $primary-invert
       &:hover
         color: $dark
+      &.is-accent
+        color: $gold
+        &:hover
+          color: $dark
+    .navbar-dropdown
+      &:hover
+        color: $dark
 
-.navbar.is-dark .navbar-end .navbar-link::after
-  border-color: $primary
-
-.navbar.is-dark .navbar-burger
-  color: $gold
-
-.navbar-burger
-  z-index: 2
-  &.is-active
-    top: 0
-    right: 0
-    position: fixed
-  span
-    z-index: 2
 
 .has-text-dark
   color: dark !important
@@ -180,6 +187,9 @@ span.avoid-text-wrap
 
 .has-accent-background
   background: linear-gradient(160deg, $gold 35%, $pink 100%)
+
+.has-light-background
+  background-color: $light-background
 
 .hero
   &.is-accent
@@ -204,10 +214,13 @@ span.avoid-text-wrap
       color: white
       text-align: right
     & .hero-title
-    @media (max-width: 786px)
+    @media (max-width: 768px)
       & .hero-subtitle
         font-size: 30px !important
 
+.is-background-dark
+  background-color: $dark
+  
 .has-text-accent
   font-family: $family-accent
 
@@ -226,11 +239,20 @@ span.avoid-text-wrap
 .no-margin-left
   margin-left: 0 !important
 
+.no-margin-top
+  margin-top: 0 !important
+
 .no-margin-bot
   margin-bottom: 0 !important
 
 .small-margin-bot
   margin-bottom: 0.4rem !important
+
+.has-margin-bot
+  margin-bottom: 60px
+
+.has-margin-top
+  margin-top: 40px
 
 .no-pad-bot
   padding-bottom: 0
@@ -249,7 +271,6 @@ span.avoid-text-wrap
 
 .main-logo
   position: absolute
-  z-index: 5
   left: 10vw
   top: 10px
   height: 200px
@@ -326,5 +347,53 @@ span.avoid-text-wrap
 .StripeElement--webkit-autofill
   background: transparent !important
 
-.CardField
-  margin-bottom: 0.4rem
+.StripeElement
+  font-family: $family-primary
+  // box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1)
+  padding: 12px
+  border-color: #dbdbdb
+  border-radius: 4px
+  color: #363636
+  margin-bottom: 32px
+
+#card-number.form-control, #card-cvc.form-control, #card-exp.form-control
+  display: inline-block
+
+.account-nav-item
+  display: block
+  width: 100%
+  font-size: 20px
+  padding: 8px
+  margin-bottom: 4px
+  &.is-current
+    background-color: $light-background
+  
+.flex-center-container
+  display: flex
+  align-items: center
+  justify-content: center
+
+.no-data-message
+  font-size: 20px
+
+
+.hidden
+  visibility: hidden !important
+  display: none !important
+
+.plans
+  input[type='radio']
+    position: fixed
+    opacity: 0
+    width: 0
+    &:checked + label
+      background-color: $gold
+      color: $dark
+      border-color: $gold
+  label
+    display: block
+  .plan
+    height: 100%
+    max-width: 300px
+    margin: 0 auto
+    padding: 20px

@@ -7,7 +7,7 @@ const NiceWrap = ({text}) => {
     <span>
       {
         text.split('/').map(t => (
-          <span className='avoid-text-wrap'>{t}&nbsp;</span>
+          <span key={t} className='avoid-text-wrap'>{t}&nbsp;</span>
         ))
       }
     </span>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Field } from 'formik'
 import { navigate } from 'gatsby-link'
 import validationSchema from './validationSchema'
-import useScript from '../../../hooks/useScript'
+import config from '../../../../config'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -11,27 +11,38 @@ const encode = (data) => {
 }
 
 const ContactForm = () => {
-  useScript('https://smtpjs.com/v3/smtp.js')
   return (
     <Formik
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
-        Email.send({
-          SecureToken: '88137f0a-632f-44c0-bf42-ea28ecdffa18',
-          To : 'trinity@aurumacademy.tech',
-          From : 'trinity@aurumacademy.tech',
-          Subject : `[AurumAcademy] ${values.name} sent a message`,
-          Body : `Email: ${values.email}</br>${values.message}`
+
+        fetch(config.backend + '/api/email', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            to : 'trinity@aurumacademy.tech',
+            from : 'trinity@aurumacademy.tech',
+            subject : `[AVA] ${values.name} sent a message`,
+            html: `
+              <p> Name: ${values.name} </p>
+              <p> Email: ${values.email} </p>
+              <p> ${values.message} </p>
+            `
+          })
         })
           .then((response) => {
-            if (response === 'OK') {
+            if (response.status == 200) {
               navigate('/contact/yay')
-              setSubmitting(false)
             } else {
               navigate('/contact/sad')
-              console.log(response)
             }
+          })
+          .catch((error) => {
+            navigate('/contact/sad')
+            console.log(error)
           })
       }}
       render={({ errors, touched, isSubmitting, handleSubmit }) => (<form
@@ -68,7 +79,7 @@ const ContactForm = () => {
           <div className='control'>
             <button className='button is-large' type='submit' disabled={isSubmitting}>
                 <span>Send</span>
-                <img class="icon is-small" src='/svg/send-pink.svg'/>
+                <img className="icon is-small" src='/svg/send-pink.svg'/>
             </button>
           </div>
         </div>

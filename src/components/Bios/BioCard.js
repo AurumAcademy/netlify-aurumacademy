@@ -14,8 +14,8 @@ const BioCard = ({ data }) => (
             <div className='level-right'>
             {
               data.links.map((item) => {
-                return <a href={item.link}>
-                  {item.image ? <img key={item.name} src={item.image} aria-label={item.label} alt={item.label} className='bio-link-icon'/> : item.label}
+                return <a key={item.label} href={item.link}>
+                  {item.image ? <img src={item.image} aria-label={item.label} alt={item.label} className='bio-link-icon'/> : item.label}
                 </a>
               })
             }

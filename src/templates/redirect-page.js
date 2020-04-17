@@ -8,7 +8,7 @@ const RedirectPage = ({ data }) => {
   const { markdownRemark: post } = data
   return (
     <Layout title={post.frontmatter.metaTitle}>
-      <section className='hero is-accent is-large'>
+      <section className='hero is-accent is-full-height'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>

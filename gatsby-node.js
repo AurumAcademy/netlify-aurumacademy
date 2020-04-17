@@ -107,3 +107,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+// client paths
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path.match(/^\/account/)) {
+    page.matchPath = `/account/*`
+    createPage(page)
+  }
+}
+
+// for auth0
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /auth0-js/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}

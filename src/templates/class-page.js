@@ -6,12 +6,8 @@ import { HTMLContent } from '../components/Content'
 import BioCards from '../components/Bios/BioCards'
 
 const ClassPage = ({ data }) => {
-
-  console.log(data)
-
   const { markdownRemark: post } = data
   return (
-
     <Layout title={post.frontmatter.title}>
       <div className='hero is-medium is-accent has-background'>
         <img className='hero-background is-transparent' src={post.frontmatter.image} />

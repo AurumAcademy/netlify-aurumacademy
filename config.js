@@ -14,6 +14,10 @@ module.exports = {
   disqusShortname: 'aurumacademy', // Disqus shortname.
   copyright: 'Copyright © Aurum Virtual Academy 2020. All Rights Reserved.', // Copyright string for the footer of the website and RSS feed.
 
+  backend: 'http://localhost:5000',
+  // backendTest: 'http://localhost:5000',
+  // backend: 'https://aurumacademy.herokuapp.com/',
+
   siteFBAppID: '', // FB Application ID for using app insights
   userName: 'Aurum Virtual Academy',
   userTwitter: '',

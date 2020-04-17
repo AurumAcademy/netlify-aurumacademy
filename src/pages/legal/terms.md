@@ -1,9 +1,7 @@
 ---
-templateKey: legal-page
+templateKey: about-page
 title: Terms and Conditions
-slug: terms
 ---
-# Terms and Conditions
 
 These terms and conditions outline the rules and regulations for the use of Aurum Academy's Website.
 

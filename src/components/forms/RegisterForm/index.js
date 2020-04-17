@@ -1,141 +1,118 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { Formik, Field } from 'formik'
-import { navigate } from 'gatsby-link'
-import validationSchema from './validationSchema'
-import useScript from '../../../hooks/useScript'
+import StudentForm from './StudentForm'
+import PlanForm from './PlanForm'
+import StripeForm from '../StripeForm'
+import { getUserMeta } from '../../Client/utils'
 
-const RegisterForm = () => {
-  useScript('https://smtpjs.com/v3/smtp.js')
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "class-page"}}}) {
-            nodes {
-              frontmatter {
-                title
-              }
+class RegisterForm extends React.Component {
+  
+  constructor (props) {
+    super(props)
+    this.state = { page: 1, student: {}, plan: {name:''}, shipping: {}, receipt:'' }
+  }
+
+  handleStudent = (data) => {
+    this.setState({student:data})
+    this.nextPage()
+    console.log(this.state)
+  }
+
+  handlePlan = ({plan}) => {
+    this.setState({plan:JSON.parse(plan)})
+    this.nextPage()
+    console.log(this.state)
+  }
+
+  handleCheckout = ({shipping, receipt}) => {
+    this.setState({shipping:shipping, receipt:receipt})
+    this.nextPage()
+    console.log(this.state)
+  }
+
+  nextPage = () => {
+    console.log('next')
+    let i = this.state.page
+    this.changePage(i, i+1)
+  }
+
+  prevPage= () => {
+    console.log('prevs')
+    let i = this.state.page
+    this.changePage(i, i-1)
+  }
+
+  changePage = (from, to) => {
+    let fromPage = document.getElementById('page'+from)
+    let toPage = document.getElementById('page'+to)
+
+    if (fromPage && toPage) {
+      fromPage.className = 'hidden'
+      toPage.className = ''
+      this.setState({page: to})
+    }
+  }
+
+  render() {
+
+    return (
+      <div>
+
+        <StudentForm
+          id='page1'
+          onSubmit={this.handleStudent}
+          buttons={[
+            {
+              text: 'Continue'
             }
-          }
-        }
-      `}
-      render={data => (
-        <Formik
-          initialValues={{ gname:'', gemail:'', sname:'', sgrade:'', sinfo:'' , sclass:''}}
-          validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-
-            Email.send({
-              SecureToken: '88137f0a-632f-44c0-bf42-ea28ecdffa18',
-              To : 'trinity@aurumacademy.tech',
-              From : 'trinity@aurumacademy.tech',
-              Subject : `[AurumAcademy] ${values.gname} just registered`,
-              Body : [
-                'Guardian Name: ' + values.gname,
-                'Guardian Email: ' + values.gemail,
-                'Student Name: ' + values.sname,
-                'Student Grade: ' + values.sgrade,
-                'Student Description:<br/>' + values.sinfo,
-                'Class: ' + values.sclass
-              ].join('<br/>')
-            })
-              .then((response) => {
-                if (response === 'OK') {
-                  navigate('/register/yay')
-                  setSubmitting(false)
-                } else {
-                  navigate('/register/sad')
-                  console.log(response)
-                }
-              })
-          }}
-          render={({ errors, touched, isSubmitting, handleChange, handleSubmit, handleReset }) => (
-          <form
-            name='contact'
-            onSubmit={handleSubmit}
-            onReset={handleReset}
-            data-netlify='true'
-            data-netlify-honeypot='bot-field'
-          >
-            <div className='field'>
-              <label className='label'>Name of Guardian
-                <span className='label-comment'>(You, hopefully!)</span>
-              </label>
-              <div className='control'>
-                <Field className='input' type='text' placeholder='Ms. Aurora Aurum' name='gname' id='gname' />
-              </div>
-              {touched.gname && errors.gname && <small className='has-text-danger'>{errors.gname}</small>}
-            </div>
-
-            <div className='field'>
-              <label className='label'>Email of Guardian
-                <span className='label-comment'>(We'll be in touch through email!)</span>
-              </label>
-              <div className='control'>
-                <Field className='input' type='email' placeholder='iamadult@mail.com' name='gemail' id='gemail' />
-              </div>
-              {touched.gemail && errors.gemail && <small className='has-text-danger'>{errors.gemail}</small>}
-            </div>
-
-            <div className='field'>
-              <label className='label'>Name of Student
-                <span className='label-comment'>(We'll take good care of them!)</span>
-              </label>
-              <div className='control'>
-                <Field className='input' type='text' placeholder='Audrey Aurum Jr.' name='sname' id='sname' />
-              </div>
-              {touched.sname && errors.sname && <small className='has-text-danger'>{errors.sname}</small>}
-            </div>
-
-            <div className='field'>
-              <label className='label'>What grade?
-                <span className='label-comment'>We ask this so we can understand our student population.</span>
-              </label>
-              <div className='control'>
-                <Field className='input' placeholder='Current student grade' type='number' name='sgrade' id='sgrade' min='1' max='12' />
-              </div>
-              {touched.sgrade && errors.sgrade && <small className='has-text-danger'>{errors.sgrade}</small>}
-            </div>
-
-
-            <div className='field'>
-              <label className='label'>What class?
-                <span className='label-comment'>It's OK to change your mind later.</span>
-              </label>
-              <div className='control select'>
-                <select className='select is-primary' name='sclass' id='sclass' onChange={handleChange}>
-                  <option value="none">Choose one!</option>
-                  {
-                    data.allMarkdownRemark.nodes.map(c => (
-                      <option key={c.frontmatter.title} value={c.frontmatter.title}>{c.frontmatter.title}</option>
-                    ))
-                  }
-                </select>
-              </div>
-              {touched.sclass && errors.sclass && <small className='has-text-danger'>{errors.sclass}</small>}
-            </div>
-
-            <div className='field'>
-              <label className='label'>What is the student like?
-                <span className='label-comment'>Just so you know, this isn't required.</span>
-              </label>
-              <div className='control'>
-                <Field className='textarea' component='textarea' placeholder='We want to get to know the student! Tell us about them and their learning background.' name='sinfo' id='sinfo' rows='3' />
-              </div>
-              {touched.sinfo && errors.sinfo && <small className='has-text-danger'>{errors.sinfo}</small>}
-            </div>
-
-            <div className='field is-grouped'>
-              <div className='control is-align-center'>
-                <button id='' className='button is-primary' type='submit' disabled={isSubmitting}>Submit!</button>
-              </div>
-            </div>
-          </form>)}
+          ]}
         />
-      )}
-    />
-  )
+  
+      <div id='page2' className='hidden'>
+        <h2 style={{marginTop:'10px'}}>Select a plan</h2>
+       <PlanForm
+          onSubmit={this.handlePlan}
+          buttons={[
+            {
+              click: this.prevPage,
+              text: 'Back'
+            },
+            {
+              text: 'Continue'
+            }
+          ]}
+        />
+      </div>
+  
+      <div id='page3' className='hidden'>
+        <h2 style={{marginTop:'10px'}}>Checkout</h2>
+        <p>Getting "{this.state.plan.name}" for {this.state.student.name}</p>
+
+        <StripeForm
+          plan={this.state.plan}
+          customer={getUserMeta(this.props.user, 'stripe_cus')}
+          onSubmit={this.handleCheckout}
+          buttons={[
+            {
+              click: this.prevPage,
+              text: 'Back'
+            },
+            {
+              text: 'Submit'
+            }
+          ]}
+        />
+      </div>
+  
+      <div id='page4' className='hidden'>
+        <h2 style={{marginTop:'10px'}}>Yay!</h2>
+        <p>Here's your receipt:
+          <a href={this.state.receipt}>{this.state.receipt}</a>
+        </p>
+      </div>
+
+      </div>
+    )
+  }
 }
 
 export default RegisterForm

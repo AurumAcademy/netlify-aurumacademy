@@ -22,7 +22,15 @@ content:
         link: "/classes/backyard-ballistics"
       - name: Project Code 
         link: "/classes/project-code"
-  - name: Register
+
+  - name: Login or Signup
+    user: false
     type: button
-    link: "/register"
+    link: "/auth/login"
+
+  - name: My Account
+    user: true 
+    type: button
+    link: "/account"
+
 ---

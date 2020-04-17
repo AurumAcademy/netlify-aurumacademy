@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import SearchBox from '../SearchBox'
 import PropTypes from 'prop-types'
 import Logo from './logo'
-
+import NavItem from './NavItem'
+import { isAuthenticated } from '../../utils/auth'
 
 class NavBar extends React.Component {
   static propTypes = {
@@ -23,13 +23,14 @@ class NavBar extends React.Component {
 
   toggleSidebar = () => {
     this.setState({ isSidebarOpen: !this.state.isSidebarOpen})
-    // this.sidebar.current.style.transform = this.state.isSidebarOpen ? 'translateX(100%)' : 'translate(0)'
     if (this.props.onToggleSidebar) {
       this.props.onToggleSidebar()
     }
   }
 
   render() {
+    let loggedIn = isAuthenticated()
+
     return <StaticQuery
       query={graphql`
         query NavbarQuery {
@@ -39,6 +40,7 @@ class NavBar extends React.Component {
                 name
                 type
                 link
+                user
                 items {
                   name
                   link
@@ -65,36 +67,14 @@ class NavBar extends React.Component {
           <div ref={this.sidebar} className={`navbar-menu is-sidenav is-active ${this.state.isSidebarOpen ? 'is-sidenav-active' : ''}`} id='navMenu'>
 
             <div className='navbar-end'>
-
               {
                 data.markdownRemark.frontmatter.content.map(item => {
-                  if (item.type === 'item') {
-                    return <Link key={item.name} className='navbar-item' to={item.link}>{item.name}</Link>
-                  } else if (item.type === 'dropdown') {
-                    return  (
-                      <div key={item.name} className="navbar-item has-dropdown is-hoverable">
-                        <a className="navbar-link">{item.name}</a>
-                        <div className="navbar-dropdown">
-                          {
-                            item.items.map(subItem => (
-                              <Link key={subItem.name} className="navbar-item" to={subItem.link}>
-                                {subItem.name}
-                              </Link>
-                            ))
-                          }
-                        </div>
-                      </div>
-                    )
-                  } else if (item.type === 'button') {
-                    return <div key={item.name} className='navbar-item has-flex-right'>
-                      <div className='field is-grouped'>
-                        <p className='control'>
-                          <Link className='button is-primary is-outlined' to={item.link}>
-                            {item.name}
-                          </Link>
-                        </p>
-                      </div>
-                    </div>
+                  if (
+                      (item.user === null) ||
+                      (!loggedIn && !item.user) ||
+                      (loggedIn && item.user) 
+                    ) {
+                    return <NavItem key={item.name} item={item}/>
                   }
                 })
               }

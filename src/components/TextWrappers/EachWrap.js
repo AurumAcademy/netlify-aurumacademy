@@ -7,7 +7,7 @@ const EachWrap = ({text}) => {
     <ul className='each-wrap'>
       {
         text.split(' ').map(t => (
-          <li>{t}</li>
+          <li key={t}>{t}</li>
         ))
       }
     </ul>
