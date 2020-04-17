@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import { ArcherContainer, ArcherElement } from 'react-archer'
 
 const FlowPage = ({ data }) => {
   const { markdownRemark: post } = data
-
-  const rootStyle = { display: 'flex', justifyContent: 'center' };
-  const rowStyle = { marginBottom: '100px', display: 'flex', justifyContent: 'space-around' }
 
   return (
     <Layout title={post.frontmatter.title}>
@@ -36,9 +33,9 @@ const FlowPage = ({ data }) => {
               </section>
 
     <section className='section'>
-      <ArcherContainer strokeColor='#ff3388' >
+      <ArcherContainer strokeColor='#999999' >
  
-        <div style={rowStyle}>
+        <div className='archer-row'>
 
           <ArcherElement
             id="code1"
@@ -52,7 +49,11 @@ const FlowPage = ({ data }) => {
               sourceAnchor: 'bottom'
             }]}
           >
-            <div className='box'>Coding 101</div>
+            <Link to='/classes/program-principles'>
+              <div className='box flow-box is-code'>
+                Programming Principles
+              </div>
+            </Link>
           </ArcherElement>
  
           <ArcherElement
@@ -63,19 +64,27 @@ const FlowPage = ({ data }) => {
               sourceAnchor: 'bottom'
             }]}
           >
-            <div className='box'>Mech 1</div>
+            <Link to='/classes/mech-prototyping'>
+              <div className='box flow-box is-mech'>
+                Mechanism Prototyping
+              </div>
+            </Link>
           </ArcherElement>
 
         </div>
 
  
-        <div style={rowStyle}>
+        <div className='archer-row'>
 
           <ArcherElement
             id="code2"
             relations={[]}
           >
-            <div className='box'>Project Code</div>
+            <Link to='/classes/project-code'>
+              <div className='box flow-box is-code'>
+                Project Code
+              </div>
+            </Link>
           </ArcherElement>
 
           <ArcherElement
@@ -86,18 +95,27 @@ const FlowPage = ({ data }) => {
               sourceAnchor: 'bottom'
             }]}
           >
-            <div className='box'>Robotics Basics</div>
+
+            <Link to='/classes/robotics-intro'>
+              <div className='box flow-box is-robo'>
+                Intro to Robotics
+              </div>
+            </Link>
           </ArcherElement>
 
         </div>
 
-        <div style={rowStyle}>
+        <div className='archer-row'>
 
           <ArcherElement
             id="robo2"
             relations={[]}
           >
-            <div className='box'>Robotics Advanced</div>
+            <Link to='/classes/robotics-expanded'>
+              <div className='box flow-box is-robo'>
+                Robotics Expanded
+              </div>
+            </Link>
           </ArcherElement>
 
         </div>

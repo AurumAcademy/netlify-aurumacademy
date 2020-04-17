@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { HTMLContent } from '../components/Content'
 import BioCards from '../components/Bios/BioCards'
 
@@ -11,13 +11,24 @@ const ClassPage = ({ data }) => {
     <Layout title={post.frontmatter.title}>
       <div className='hero is-medium is-accent has-background'>
         <img className='hero-background is-transparent' src={post.frontmatter.image} />
+
+
         <div className='hero-body'>
           <div className='container content'>
             <div className='columns'>
               <div className='column is-offset-1'>
-                  <h1 className='has-text-big has-text-accent has-text-weight-semibold  is-align-bottom'>
-                    {post.frontmatter.title}
-                  </h1>
+                <Link to='/classes'>
+                  <button className='button is-primary'>
+                    &larr; All Classes
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className='columns'>
+              <div className='column is-offset-1'>
+                <h1 className='has-text-big has-text-accent has-text-weight-semibold  is-align-bottom'>
+                  {post.frontmatter.title}
+                </h1>
               </div>
               <div className='column'>
                 <div className='box'>

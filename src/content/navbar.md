@@ -16,12 +16,18 @@ content:
   - name: Classes
     type: dropdown
     items:
-      - name: Robotics Basics
-        link: "/classes/robotics-basics"
-      - name: Backyard Ballistics
-        link: "/classes/backyard-ballistics"
+      - name: Overview
+        link: "/classes"
+      - name: Program Principles
+        link: "/classes/program-principles"
       - name: Project Code 
         link: "/classes/project-code"
+      - name: Intro to Robotics
+        link: "/classes/robotics-intro"
+      - name: Robotics Expanded
+        link: "/classes/robotics-expanded"
+      - name: Mech Prototyping
+        link: "/classes/mech-prototyping"
 
   - name: Login or Signup
     user: false
