@@ -3,6 +3,7 @@ templateKey: class-page
 title: Mechanism Prototyping
 link: /classes/mech-prototyping
 icon: /svg/wrench.svg
+image: /img/catapult.png
 summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th

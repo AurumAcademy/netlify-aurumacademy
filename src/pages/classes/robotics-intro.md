@@ -12,7 +12,7 @@ bios:
   - Stephen Krider
   - Trinity Chung
 ---
-# Introduction to Robotics
+# Robotics Basics
 Sensors, motors, and computers are just as fundamental to modern society as simple machines were to society a century ago. Introduction to Robotics will teach you about basic robot components and serve as a guide to bringing your creations to life. In it, we will explore how to integrate electronics into our designs, and use programming to control them.
 
 ### Pricing

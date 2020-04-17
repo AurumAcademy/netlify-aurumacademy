@@ -21,12 +21,22 @@ There's a lot of programming courses online nowadays, but not very many of them 
 ## Curriculum
 
 ### How a Computer Thinks
-First we will clear up common misconceptions about being a programmer, and do an interesting exercise.
+Learn about how a computer actually works, and clear up some common misconceptions.
 
-## Languages of the Coding-verse
-Cover what different programming languages do
+### Languages of the Coding-verse
+Cover what different programming languages do, and get a taste for them and their syntax.
 
-## From Blocks to Code
+
+(We won't actually learn all of these languages, but get an overview.)
+
+Low-level vs High-level
+* Assembly
+* C++
+* Python
+* HTML/CSS/JS
+
+
+### From Blocks to Code
 Cover basic programming.
   * Loops
   * Functions

@@ -7,34 +7,42 @@ image: /img/projectcode.png
 summary: >-
   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
 target: 4th-9th
-cost: '$25/hr'
+cost: '$20/hr'
 bios:
   - Trinity Chung
 ---
 
 # Project Code
-
-Project Code is a creative programming course where you can learn how to code by making something awesome! 
-
-First, we will cover programming basics and good planning/designing practices. Then we will delve into making a project of the student's choice. Project creation will be guided during lessons, and students will be encouraged (but not required) to work outside of lessons.
+This class builds upon the foundational knowledge of Programming Principles. In Project Code, the student will develop their own game/app! Project creation will be guided during lessons, and students will be encouraged (but not required) to work outside of lessons.
 
 ### Pricing
-* Cost: TBD
-* Estimate: $25 per child per hour
+* $20 per child per lesson hour
 
 ## Curriculum
 
-### Programming Crash Course
-* How a Computer Thinks
-* From Blocks to Code
-  * Loops
-  * Functions
-  * Console Basics
+### Phase 1 - Planning and Designing
+Think before you code! First we will set our goals and create a list of key features and brainstorm how they would be implemented.
 
-### Creating an App/Game
-* Planning the product
-* Guided Creation
+Some ideas:
+* idle/tapper game
+* local play hangman
+* text adventure/chatbot
 
-### Deployment and Presentation
-* Exporting project
-* With permission, I will publish students' work to this website
+### Phase 2 - Familiarizing with the environment
+Students will choose their development environment and learn how to use the frameworks.
+
+Recommended environments:
+* pygame
+* code.org
+* repl.it
+
+### Phase 3 - Creating
+During sessions students will get guidance and input from teachers and peers.
+
+### Phase 4 - Deployment
+We will wrap up the creation process and learn how to export and deploy the product.
+
+### Phase 5 - Presentation
+We will hold a presentation session and share our creations with one another.
+
+With permission, I will publish students' work to this website.
