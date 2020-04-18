@@ -8,6 +8,8 @@ summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th
 cost: '$75-$200 + $12-20/lesson'
+prereq:
+  - name: Joynt Set
 bios:
   - Stephen Krider
 ---

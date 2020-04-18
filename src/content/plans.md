@@ -14,7 +14,7 @@ content:
  
   - name: Robotics Recruit
     icon: /svg/sam.svg
-    text: For the ones who want to put it all together interact to make awesome robots!
+    text: For the ones who want to put it all together to make awesome robots!
     items:
       - name: Robotics Kit
       - name: Programming Principles
@@ -30,8 +30,8 @@ content:
     icon: /svg/code.svg
     text: For the aspiring software engineers or master hackers!
     items:
-      - name: Coding 101
-        link: /classes/coding-101
+      - name: Programming Principles
+        link: /classes/program-principles
       - name: Project Code
         link: /classes/project-code
 ---

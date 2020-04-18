@@ -10,9 +10,9 @@ target: 7th-9th
 cost: '$95-$400 + $12-20/lesson'
 prereq:
   - name: Programming Principles
-    link: /program-principles
+    link: /classes/program-principles
   - name: Mechanism Prototyping
-    link: /mech-prototyping
+    link: /classes/mech-prototyping
   - name: Robotics Kit
 bios:
   - Stephen Krider

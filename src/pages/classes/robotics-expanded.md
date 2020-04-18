@@ -10,7 +10,7 @@ target: 7th-9th
 cost: '$95-$400 + $12-20/lesson'
 prereq:
   - name: Introduction to Robotics
-    link: /robotics-intro
+    link: /classes/robotics-intro
   - name: Robotics Kit
 bios:
   - Stephen Krider

@@ -10,7 +10,7 @@ target: 4th-9th
 cost: '$12-20/lesson'
 prereq:
   - name: Programming Principles
-    link: /program-principles
+    link: /classes/program-principles
 bios:
   - Trinity Chung
 ---
