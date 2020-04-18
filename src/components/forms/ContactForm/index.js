@@ -2,7 +2,6 @@ import React from 'react'
 import { Formik, Field } from 'formik'
 import { navigate } from 'gatsby-link'
 import validationSchema from './validationSchema'
-import config from '../../../../config'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -17,21 +16,12 @@ const ContactForm = () => {
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
 
-        fetch(config.backend + '/api/email', {
+        fetch(process.env.GATSBY_BACKEND + '/api/contact', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
           },
-          body: JSON.stringify({
-            to : 'trinity@aurumacademy.tech',
-            from : 'trinity@aurumacademy.tech',
-            subject : `[AVA] ${values.name} sent a message`,
-            html: `
-              <p> Name: ${values.name} </p>
-              <p> Email: ${values.email} </p>
-              <p> ${values.message} </p>
-            `
-          })
+          body: JSON.stringify({values})
         })
           .then((response) => {
             if (response.status == 200) {

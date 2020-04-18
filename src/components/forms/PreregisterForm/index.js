@@ -39,8 +39,9 @@ class PreregisterForm extends React.Component {
             validationSchema={validationSchema}
             onChange={this.handleChange}
             onSubmit={(values, { setSubmitting }) => {
+              console.log(process.env.GATSBY_BACKEND)
 
-          fetch(config.backend + '/data/preregister', {
+          fetch(process.env.GATSBY_BACKEND + '/api/preregister', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'

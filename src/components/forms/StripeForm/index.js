@@ -7,7 +7,7 @@ import { Formik, Field } from 'formik'
 import validationSchema from './validationSchema'
 import FormButtons from '../FormButtons'
 
-const stripePromise = loadStripe("pk_test_Ez1zgMkkKMNBNpAXPS1KnIvc00DCalp86X")
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PK)
 
 class CheckoutForm extends React.Component {
   static propTypes = {

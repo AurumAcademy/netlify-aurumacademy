@@ -1,6 +1,6 @@
 ---
 templateKey: 'redirect-page'
-metaTitle: 'Sent!'
-title: 'Message sent!'
+metaTitle: 'All set!'
+title: 'Yay!'
 ---
-Thanks for reaching out. We'll send a reply as soon as possible.
+Thank you for preregistering! We will email you with more information about student registration soon!

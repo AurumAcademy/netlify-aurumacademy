@@ -1,8 +1,6 @@
-import config from '../../../../config'
-
 export const stripeCharge = async (data) => {
   return new Promise((resolve, reject) => {
-    fetch(config.backend+'/stripe/charge', {
+    fetch(process.env.GATSBY_BACKEND+'/stripe/charge', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
