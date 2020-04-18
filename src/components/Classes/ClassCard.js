@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'gatsby'
 
 const ClassCard = ({ data }) => (
   <div className='box'>
@@ -16,9 +17,11 @@ const ClassCard = ({ data }) => (
             <p>{data.summary}</p>
           </div>
           <div className='column'>
-            <button className='button is-primary is-pulled-right'>
-              &rarr;
-            </button>
+            <Link to={data.link} >
+              <button className='button is-primary is-pulled-right'>
+                &rarr;
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -26,23 +29,12 @@ const ClassCard = ({ data }) => (
   </div>
 )
 
-// templateKey: class-page
-// title: Programming Principles
-// link: /classes/program-principles
-// icon: /svg/code.svg
-// image: /img/projectcode.png
-// summary: >-
-//   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
-// target: 4th-9th
-// cost: '$20/hr'
-// bios:
-//   - Trinity Chung
 ClassCard.propTypes = {
   data: PropTypes.shape({
-    // name: PropTypes.string,
-    // image: PropTypes.string,
-    // links: PropTypes.array,
-    // text: PropTypes.string,
+    title: PropTypes.string,
+    icon: PropTypes.string,
+    summary: PropTypes.string,
+    link: PropTypes.string
   }),
 }
 

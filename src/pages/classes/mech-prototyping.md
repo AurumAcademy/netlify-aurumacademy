@@ -7,7 +7,7 @@ image: /img/catapult.png
 summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th
-cost: '$45-$200 + $20/lesson'
+cost: '$75-$200 + $12-20/lesson'
 bios:
   - Stephen Krider
 ---
@@ -16,9 +16,10 @@ bios:
 Simple machines - like gears, screws, pulleys, levers, and wheels - may seem basic, but form the foundation of modern society. Any one of them alone is nothing special. But engineering is about connecting them together, finding new and clever ways to create useful mechanisms from objects less complex. This class will teach you how to do that. The whole truly is greater than the sum of the parts.
 
 ### Pricing
-* $45 to rent
+More details are to come.
+* $75 to rent
 * $200 to buy
-* $20 per child per lesson hour 
+* $12-20 per child per lesson hour 
 
 ## Curriculum
 Each phase will span one to two weeks.

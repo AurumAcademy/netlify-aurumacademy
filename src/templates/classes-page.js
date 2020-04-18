@@ -7,7 +7,7 @@ import Plans from '../components/Plans/Plans'
 import ClassCards from '../components/Classes/ClassCards'
 import ClassFlow from '../components/Classes/ClassFlow'
 
-const FlowPage = ({ data }) => {
+const ClassesPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
@@ -33,6 +33,10 @@ const FlowPage = ({ data }) => {
               <HTMLContent content={post.html} />
 
               <section className='section no-pad-bottom'>
+                <h1 className='has-text-centered has-text-accent'>
+                  Class Prequisites
+                </h1>
+                <hr/>
                 <ClassFlow/>
               </section>
 
@@ -60,27 +64,21 @@ const FlowPage = ({ data }) => {
   )
 }
 
-FlowPage.propTypes = {
+ClassesPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default FlowPage 
+export default ClassesPage 
 
 export const pageQuery = graphql`
-  query FlowPage($id: String!) {
+  query ClassesPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
         title
-        flow {
-          node {
-            title
-            text
-          }
-        }
       }
     }
   }

@@ -7,7 +7,7 @@ image: /img/shooterbot.png
 summary: >-
   Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
 target: 7th-9th
-cost: '$95-$400 + $20/hr'
+cost: '$95-$400 + $12-20/lesson'
 prereq:
   - name: Programming Principles
     link: /program-principles
@@ -22,9 +22,10 @@ bios:
 Sensors, motors, and computers are just as fundamental to modern society as simple machines were to society a century ago. Introduction to Robotics will teach you about basic robot components and serve as a guide to bringing your creations to life. In it, we will explore how to integrate electronics into our designs, and use programming to control them.
 
 ### Pricing
+More details are to come.
 * $95 to rent
 * $500 to buy
-* $25 per child per lesson hour
+* $12-20 per child per lesson hour
 
 ## Curriculum
 Each phase will span one to two weeks. Each week we will meet 3 times for an hour each.

@@ -46,6 +46,24 @@ const ClassPage = ({ data }) => {
                         Cost Estimate:
                       </a> {post.frontmatter.cost}
                     </li>
+                    <li>
+                      <span className='has-text-weight-semibold'>
+                        Prerequisites:
+                      </span>
+                      {
+                        post.frontmatter.prereq ?
+                          post.frontmatter.prereq.map((item, i) => {
+                            const element = item.link ?
+                              <Link key={i} to={item.link}>
+                                &nbsp;{item.name}
+                              </Link> : <span key={i}> {item.name} </span>
+                            return <span>
+                              {element}
+                              {i==post.frontmatter.prereq.length-1 ? '' : ','}
+                            </span>
+                          }) : ' None'
+                      }
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -88,6 +106,10 @@ export const pageQuery = graphql`
         summary
         target
         cost
+        prereq {
+          name
+          link
+        }
         bios
       }
     }
