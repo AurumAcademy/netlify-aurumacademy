@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Video from '../components/Video'
 import Classes from '../components/Classes/Classes'
+import Plans from '../components/Plans/Plans'
 import PromoVideo from '../assets/vid/promo.mp4'
 import PromoThumbnail from '../assets/img/promo.png'
 import config from '../../config'
@@ -39,14 +40,21 @@ const HomePage = ({ data }) => {
           </section>
 
           <section className='section no-pad-bot'>
+            <h1 className='has-text-centered has-text-accent'>
+              What we offer
+            </h1>
+            <hr/>
             <Classes names={frontmatter.classes}/>
+            <h1 className='has-text-centered has-text-accent'>
+              ...and <Link to='/classes'>more</Link>!
+            </h1>
           </section>
 
           <section className='section has-text-centered has-big-padding'>
             <h1 className='is-size-1 has-text-accent has-text-weight-normal'>{frontmatter.register.text}</h1>
-            <Link className='button is-primary is-large' to='/register'>{frontmatter.register.button}</Link>
-            {/* <h2 className='has-text-accent'>Questions?</h2>
-            <Link className='button is-primary is-medium' to='/contact'>Contact</Link> */}
+            <Link className='button is-primary is-large' to={frontmatter.register.link}>
+              {frontmatter.register.button}
+            </Link>
           </section>
         
         </div>
@@ -79,6 +87,7 @@ export const pageQuery = graphql`
         register {
           text
           button
+          link
         }
       }
     }

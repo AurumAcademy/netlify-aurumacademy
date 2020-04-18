@@ -31,6 +31,7 @@ class NavBar extends React.Component {
   render() {
     let loggedIn = isAuthenticated()
 
+    // TODO: add 'user' to query
     return <StaticQuery
       query={graphql`
         query NavbarQuery {
@@ -40,7 +41,6 @@ class NavBar extends React.Component {
                 name
                 type
                 link
-                user
                 items {
                   name
                   link
@@ -70,7 +70,7 @@ class NavBar extends React.Component {
               {
                 data.markdownRemark.frontmatter.content.map(item => {
                   if (
-                      (item.user === null) ||
+                      (!item.user || item.user === null) ||
                       (!loggedIn && !item.user) ||
                       (loggedIn && item.user) 
                     ) {

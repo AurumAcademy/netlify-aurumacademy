@@ -21,7 +21,7 @@ const Class = ({data}) => {
         </script>
       </Helmet>
 
-      <img className='image is-96x96 is-image-centered' src={data.icon} />
+      <img className='image is-64x64 is-image-centered' src={data.icon} />
       <p className='has-text-centered has-text-accent has-text-weight-bold has-text-primary is-size-3 small-line-height'>
         <Link to={data.link}>{data.title}</Link>
       </p>

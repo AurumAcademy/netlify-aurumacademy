@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import Plan from './Plan'
+import PricingCard from './Plan'
 
-const Plans = ({setFieldValue}) => {
+const PricingPlans = () => {
   const data = useStaticQuery(graphql`
-    query PlansQuery {
+    query PricingPlansQuery {
       markdownRemark(frontmatter: {for: {eq: "plans"}}) {
         frontmatter {
-          text
           content {
+            icon
             name
             text
             items {
@@ -23,17 +23,17 @@ const Plans = ({setFieldValue}) => {
   `)
   const plans = data.markdownRemark.frontmatter.content
   return (
-    <div>
-      <p>{data.markdownRemark.frontmatter.text}</p>
-      <div className='plans columns is-desktop'>
-        {
-          plans.map((p, i)=> {
-            return <Plan key={i} data={p} setFieldValue={setFieldValue}/>
-          })
-        }
-      </div>
+    <div className='columns'>
+      {
+        plans.map((p, i) => (
+          <div key={i} className='column'>
+            <PricingCard data={p} />
+          </div>
+        ))
+      }
     </div>
   )
 }
 
-export default Plans
+export default PricingPlans 
+

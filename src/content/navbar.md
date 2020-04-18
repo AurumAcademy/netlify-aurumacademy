@@ -28,15 +28,18 @@ content:
         link: "/classes/robotics-intro"
       - name: Robotics Expanded
         link: "/classes/robotics-expanded"
-
-  - name: Login or Signup
-    user: false
+  - name: Preregister
     type: button
-    link: "/auth/login"
+    link: "/preregister"
 
-  - name: My Account
-    user: true 
-    type: button
-    link: "/account"
+  # - name: Login or Signup
+  #   user: false
+  #   type: button
+  #   link: "/auth/login"
+
+  # - name: My Account
+  #   user: true 
+  #   type: button
+  #   link: "/account"
 
 ---

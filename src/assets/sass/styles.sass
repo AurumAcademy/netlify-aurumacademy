@@ -417,3 +417,24 @@ span.avoid-text-wrap
     background-color: $tang
     &:hover
       box-shadow: 0 0 12px $tang
+
+.has-blob
+  &:before
+    content: ''
+    position: absolute
+    transform: translate(-24px, -24px)
+    z-index: -1
+    width: 100px
+    height: 100px
+    background-color: $gold
+    mask-image: url(/svg/blob.svg)
+    mask-repeat: no-repeat
+  &.pink-blob:before
+    background-color: $pink
+  &.tang-blob:before
+    background-color: $tang
+  &.gold-blob:before
+    background-color: $gold
+
+.checkbox-label
+  padding-left: 8px

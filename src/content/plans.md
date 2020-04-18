@@ -5,43 +5,33 @@ text: >-
   You will be billed at the start of every 2 weeks.
 content:
   - name: Budding Builder
-    cost: $45 + $20/lesson
-    text: For the mechanically-minded
+    icon: /svg/wrench.svg
+    text: For the creative and hands-on mechanical engineers or architects!
     items:
-      - name: 'Rent Joynt Kit (Rent $45, Buy $200)'
-      - name: Backyards Ballistics
-        link: /classes/coding-101
-    charge:
-      initial: 4500
-      prod: prod_H72pWvym29zsGP
-      plan: plan_H73zzt43TX3xgH
+      - name: Joynt Set
+      - name: Mechanism Prototyping
+        link: /classes/mech-prototyping
  
   - name: Robotics Recruit
-    cost: $95 + $25/lesson
-    text: Yay robots
+    icon: /svg/sam.svg
+    text: For the ones who want to put it all together interact to make awesome robots!
     items:
-      - name: 'Rent Robotics Kit (Rent $95, Buy $500)'
-      - name: Coding 101
-        link: /classes/project-code
-      - name: Backyard Ballistics
-        link: /classes/backyard-ballistics
+      - name: Robotics Kit
+      - name: Programming Principles
+        link: /classes/program-principles
+      - name: Mechanism Prototyping
+        link: /classes/mech-prototyping
       - name: Introduction to Robotics
-        link: /classes/robotics-basics
-    charge:
-      initial: 9500
-      prod: prod_H72pWvym29zsGP
-      plan: plan_H73zzt43TX3xgH
+        link: /classes/robotics-intro
+      - name: Robotics Expanded
+        link: /classes/robotics-expanded
  
   - name: Developing Developer
-    cost: $20/lesson
-    text: Yay code
+    icon: /svg/code.svg
+    text: For the aspiring software engineers or master hackers!
     items:
       - name: Coding 101
         link: /classes/coding-101
       - name: Project Code
         link: /classes/project-code
-    charge:
-      initial: 0
-      prod: prod_H72pWvym29zsGP
-      plan: plan_H73zzt43TX3xgH
 ---
