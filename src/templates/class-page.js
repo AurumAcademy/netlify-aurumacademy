@@ -54,10 +54,10 @@ const ClassPage = ({ data }) => {
                         post.frontmatter.prereq ?
                           post.frontmatter.prereq.map((item, i) => {
                             const element = item.link ?
-                              <Link key={i} to={item.link}>
+                              <Link to={item.link}>
                                 &nbsp;{item.name}
-                              </Link> : <span key={i}> {item.name} </span>
-                            return <span>
+                              </Link> : <span> {item.name} </span>
+                            return <span key={i}>
                               {element}
                               {i==post.frontmatter.prereq.length-1 ? '' : ','}
                             </span>
