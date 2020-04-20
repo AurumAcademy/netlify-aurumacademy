@@ -21,7 +21,7 @@ const ContactForm = () => {
           headers: {
             'content-type': 'application/json'
           },
-          body: JSON.stringify({values})
+          body: JSON.stringify(values)
         })
           .then((response) => {
             if (response.status == 200) {

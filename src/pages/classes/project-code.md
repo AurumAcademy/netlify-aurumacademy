@@ -7,7 +7,7 @@ image: /img/projectcode.png
 summary: >-
   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
 target: 4th-9th
-cost: '$12-20/lesson'
+cost: '(TBD) $12-18/lesson'
 prereq:
   - name: Programming Principles
     link: /classes/program-principles
@@ -20,9 +20,9 @@ This class builds upon the foundational knowledge of Programming Principles. In 
 
 ### Pricing
 More details are to come.
-* $12-20 per child per lesson hour
+* (TBD) $12-18 per child per lesson hour
 
-## Curriculum
+## Curriculum (Tentative)
 
 ### Phase 1 - Planning and Designing
 Think before you code! First we will set our goals and create a list of key features and brainstorm how they would be implemented.

@@ -7,7 +7,7 @@ image: /img/shooterbot.png
 summary: >-
   Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
 target: 7th-9th
-cost: '$95-$400 + $12-20/lesson'
+cost: '$95-$400 + (TBD) $12-18/lesson'
 prereq:
   - name: Programming Principles
     link: /classes/program-principles
@@ -25,9 +25,9 @@ Sensors, motors, and computers are just as fundamental to modern society as simp
 More details are to come.
 * $95 to rent
 * $500 to buy
-* $12-20 per child per lesson hour
+* (TBD) $12-18 per child per lesson hour
 
-## Curriculum
+## Curriculum (Tentative)
 Each phase will span one to two weeks. Each week we will meet 3 times for an hour each.
 
 ### Phase 1 - Drivetrain

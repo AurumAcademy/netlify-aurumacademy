@@ -7,7 +7,7 @@ image: /img/robot.png
 summary: >-
   After getting down your robotics fundamentals, challenge yourself by designing your very own creation! 
 target: 7th-9th
-cost: '$95-$400 + $12-20/lesson'
+cost: '$95-$400 + (TBD) $12-18/lesson'
 prereq:
   - name: Introduction to Robotics
     link: /classes/robotics-intro
@@ -25,9 +25,9 @@ Sensors, motors, and computers are just as fundamental to modern society as simp
 More details are to come.
 * $95 to rent
 * $500 to buy
-* $12-20 per child per lesson hour
+* (TBD) $12-18 per child per lesson hour
 
-## Curriculum
+## Curriculum (Tentative)
 There’s no rigid timeline, as we don’t know what you’ll build! Instead, we will be limiting the course to six weeks, and providing challenges for you to design a robot to tackle. Choose one of the challenges and go for it!
 
 ## Challenges

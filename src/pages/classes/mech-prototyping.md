@@ -7,7 +7,7 @@ image: /img/catapult.png
 summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th
-cost: '$75-$200 + $12-20/lesson'
+cost: '$75-$200 + (TBD) $12-18/lesson'
 prereq:
   - name: Joynt Set
 bios:
@@ -21,9 +21,9 @@ Simple machines - like gears, screws, pulleys, levers, and wheels - may seem bas
 More details are to come.
 * $75 to rent
 * $200 to buy
-* $12-20 per child per lesson hour 
+* (TBD) $12-18 per child per lesson hour 
 
-## Curriculum
+## Curriculum (Tentative)
 Each phase will span one to two weeks.
 
 ### Phase 1 - Introduction to Joynt - Structures
