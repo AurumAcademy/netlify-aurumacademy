@@ -10,7 +10,7 @@ module.exports = {
   foundingDate: '2020-04-20',
   email: 'hi@aurumacademy.tech',
   phone: '+1-818-424-3623',
-  googleTagManagerID: 'UA-163295472-1', // GTM tracking ID.
+  googleTagManagerID: process.env.GATSBY_GOOGLE_TAG_MANAGER_ID,
   disqusShortname: 'aurumacademy', // Disqus shortname.
   copyright: 'Copyright © Aurum Virtual Academy 2020. All Rights Reserved.', // Copyright string for the footer of the website and RSS feed.
   siteFBAppID: '', // FB Application ID for using app insights
