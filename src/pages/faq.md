@@ -10,7 +10,7 @@ title: FAQ
 ## Class Information
 
 ### What devices will my student need to participate?
-Students will need access to a device capable of accessing Google Hangouts. Students in a course with programming should have access to a laptop or desktop computer. Chromebooks are also OK.
+Students will need access to a device capable of accessing [Zoom](https://zoom.us), which is a video conferencing app. Students in a course with programming should have access to a laptop or desktop computer. Chromebooks are also OK.
 
 ### Are the projects safe?
 Yes, all projects are designed to be indoor-safe.
@@ -19,10 +19,9 @@ Yes, all projects are designed to be indoor-safe.
 ## Scheduling
 
 ### When are classes?
-Classes will start on 4/20/2020. 
+Classes will start in May. Date is to be determined.
 
-### What happens if a class is missed?
-We keep track of students' attendance. We can offer a make-up lesson for the hourly cost + $5, but it's best not to be absent!
+<!-- ### What happens if a class is missed? -->
 
 
 ## Payment
