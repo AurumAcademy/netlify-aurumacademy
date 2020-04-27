@@ -10,7 +10,13 @@ const BioCards = ({names}) => {
         frontmatter {
           content {
             name
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             links {
               label
               image

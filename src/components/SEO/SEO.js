@@ -38,11 +38,13 @@ const SE0 = ({ title, meta_title, meta_desc }) => {
     ]
   }
 
+  const description = meta_desc || config.siteDescription
+
   return (
     <Helmet>
       <title>{meta_title}</title>
       {/* General tags */}
-      <meta name='description' content={meta_desc} />
+      <meta name='description' content={description} />
       <meta name='image' content={CoverImage} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>

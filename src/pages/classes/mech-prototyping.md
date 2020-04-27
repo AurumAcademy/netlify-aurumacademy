@@ -7,9 +7,9 @@ image: /img/catapult.png
 summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th
-cost: '$75-$200 + (TBD) $12-18/lesson'
+cost: '$65/$120 kit + $12/lesson'
 prereq:
-  - name: Joynt Set
+  - name: Joynt Set ($65 to rent, $120 to buy)
 bios:
   - Stephen Krider
 ---
@@ -18,10 +18,9 @@ bios:
 Simple machines - like gears, screws, pulleys, levers, and wheels - may seem basic, but form the foundation of modern society. Any one of them alone is nothing special. But engineering is about connecting them together, finding new and clever ways to create useful mechanisms from objects less complex. This class will teach you how to do that. The whole truly is greater than the sum of the parts.
 
 ### Pricing
-More details are to come.
-* $75 to rent
-* $200 to buy
-* (TBD) $12-18 per child per lesson hour 
+* $65 to rent a Joynt Set
+* $120 to buy a Joynt Set
+* $12 per child per lesson hour 
 
 ## Curriculum (Tentative)
 Each phase will span one to two weeks.

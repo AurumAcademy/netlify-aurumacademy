@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 
 const BioCard = ({ data }) => (
   <div className='box'>
     <div className='media'>
       <div className='media-left'>
-          <img className='image bio-pic is-128x128' src={data.image ? data.image : 'https://placekitten.com/200/200'} alt='Image'/>
+        <Img className='image bio-pic' alt={data.name} fluid={data.image.childImageSharp.fluid}/>
       </div>
       <div className='media-content'>
         <div className='content'>
           <div className='level no-margin-bot'>
             <strong className='level-left'>{data.name}</strong>
-            <div className='level-right'>
+            <div className='level-right no-margin-top'>
             {
               data.links.map((item) => {
                 return <a key={item.label} href={item.link}>

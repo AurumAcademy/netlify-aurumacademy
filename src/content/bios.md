@@ -2,7 +2,7 @@
 for: bios
 content:
   - name: Stephen Krider
-    image: /img/stephen.png
+    image: ../assets/img/stephen.png
     links:
       - label: Email 
         image: /svg/email.svg
@@ -10,7 +10,7 @@ content:
     text: >-
       Stephen teaches the building classes here at Aurum. He is the current captain and lead engineer of Golden Gears. His favorite thing to do is designing and building things, as well as teaching others. He will be attending the University of California - Berkeley this fall to study Mechanical Engineering and Business Administration.
   - name: Trinity Chung
-    image: /img/trinity.png
+    image: ../assets/img/trinity.png
     links:
       - label: GitHub
         image: /svg/github.svg

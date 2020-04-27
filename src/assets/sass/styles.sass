@@ -311,10 +311,18 @@ span.avoid-text-wrap
     margin-bottom: 0 !important
 
 .each-wrap
-  @media (min-width: 786px)
+  @media (min-width: 768px)
     li
       display: inline-block
       padding-left: 0.3em
+
+.bio-pic
+  @media (max-width: 768px)
+    height: 80px
+    width: 80px
+  @media (min-width: 768px)
+    height: 128px
+    width: 128px
 
 .bio-link-icon
   height: 36px
@@ -334,7 +342,7 @@ span.avoid-text-wrap
   border-top: solid 70px #f0f0f0
   border-left: solid 120px transparent
   border-right: solid 120px transparent
-  @media (min-width: 786px)
+  @media (min-width: 768px)
     border-top: solid 100px #f0f0f0
     border-left: solid 200px transparent
     border-right: solid 200px transparent
@@ -404,6 +412,7 @@ span.avoid-text-wrap
   margin-bottom: 100px
 
 .flow-box
+  margin: 0px 20px
   &.is-code
     background-color: $pink
     color: $primary-invert
