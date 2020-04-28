@@ -1,6 +1,5 @@
 ---
 templateKey: home-page
-image: img/robot.png
 hero:
   title: Design. Make. Learn.
   subtitle: Online classes for/aspiring engineers.

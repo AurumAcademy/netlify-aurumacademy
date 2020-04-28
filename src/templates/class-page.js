@@ -10,7 +10,7 @@ const ClassPage = ({ data }) => {
   return (
     <Layout title={post.frontmatter.title}>
       <div className='hero is-medium is-accent has-background'>
-        <img className='hero-background is-transparent' src={post.frontmatter.image} />
+        <img className='hero-background is-transparent' src={post.frontmatter.image} alt='background'/>
 
 
         <div className='hero-body'>
@@ -37,13 +37,13 @@ const ClassPage = ({ data }) => {
                   </p>
                   <ul className='has-no-list-style no-margin-left'>
                     <li>
-                      <a href='#whos-a-fit' className='has-text-weight-semibold'>
+                      <span className='has-text-weight-semibold'>
                         Target Grade Level:
-                      </a> {post.frontmatter.target}
+                      </span> {post.frontmatter.target}
                     </li>
                     <li>
                       <a href='#pricing' className='has-text-weight-semibold'>
-                        Cost Estimate:
+                        Pricing:
                       </a> {post.frontmatter.cost}
                     </li>
                     <li>

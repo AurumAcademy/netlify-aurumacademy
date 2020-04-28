@@ -7,7 +7,7 @@ const Plan = ({data}) => {
 
   return (
     <section className='section no-pad-top no-pad-bot'>
-      <img className='image is-48x48 is-image-centered' src={data.icon} />
+      <img className='image is-48x48 is-image-centered' src={data.icon} alt={data.name} />
       <p className='has-blob has-text-centered has-text-accent is-size-3 small-line-height'>
         {data.name}
       </p>

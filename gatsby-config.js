@@ -28,7 +28,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              icon: `<img src='/svg/link.svg'/>`,
+              icon: `<img src='/svg/link.svg' alt='Link'/>`,
               className: `autolink`,
               isIconAfterHeader: false,
             },
@@ -42,18 +42,12 @@ module.exports = {
               toHeading: 6
             },
           },
-          // {
-          //   resolve: 'gatsby-remark-relative-images',
-          //   options: {
-          //     name: 'uploads',
-          //   },
-          // },
-          // {
-          //   resolve: 'gatsby-remark-images',
-          //   options: {
-          //     maxWidth: 2048,
-          //   },
-          // },
+          {
+            resolve: `gatsby-remark-video-poster`,
+            options: {
+              width: 720
+            },
+          }
         ],
       },
     },
@@ -142,14 +136,14 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-netlify-cms',
-    //   options: {
-    //     modulePath: `${__dirname}/src/cms/cms.js`,
-    //     enableIdentityWidget: true,
-    //     htmlTitle: `Netlify CMS | Aurum Academy`,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        enableIdentityWidget: true,
+        htmlTitle: `Netlify CMS | Aurum Academy`,
+      },
+    },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

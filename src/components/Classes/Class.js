@@ -21,7 +21,7 @@ const Class = ({data}) => {
         </script>
       </Helmet>
 
-      <img className='image is-64x64 is-image-centered' src={data.icon} />
+      <img className='image is-64x64 is-image-centered' src={data.icon} alt={data.title}/>
       <p className='has-text-centered has-text-accent has-text-weight-bold has-text-primary is-size-3 small-line-height'>
         <Link to={data.link}>{data.title}</Link>
       </p>
@@ -31,7 +31,7 @@ const Class = ({data}) => {
           Recommended for: {data.target}
         </li>
         <li className='has-small-padding'>
-          <Link to={data.link} className='button is-primary'>Class Page<strong>&nbsp;→</strong></Link>
+          <Link to={data.link} className='button is-primary has-text-weight-semibold'>Class Page &nbsp;→</Link>
         </li>
       </ul>
     </section>

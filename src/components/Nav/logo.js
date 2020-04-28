@@ -10,7 +10,7 @@ const Logo = () => (
         file(relativePath: { eq: "icon.png" }) {
           childImageSharp {
             fixed(width: 40, height: 40) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_withWebp_tracedSVG
             }
           }
         }

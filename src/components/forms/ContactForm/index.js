@@ -69,7 +69,7 @@ const ContactForm = () => {
           <div className='control'>
             <button className='button is-large' type='submit' disabled={isSubmitting}>
                 <span>Send</span>
-                <img className="icon is-small" src='/svg/send-pink.svg'/>
+                <img className="icon is-small" src='/svg/send-pink.svg' alt='->'/>
             </button>
           </div>
         </div>
