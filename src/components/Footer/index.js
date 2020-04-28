@@ -18,13 +18,13 @@ const Footer = () => (
     }
     render={(data) => (
       <footer className='footer is-dark'>
-        <div className='container'>
+        <div className='content'>
 
           <section className='section no-pad-top'>
 
             <div className='columns'>
               <div className='column'>
-                <h4 className='is-size-4'>Contact</h4>
+                <h3 className='has-text-white'>Contact</h3>
                 <p>
                   <Link className='button is-primary is-outlined' to='/contact'>
                     Send a message
@@ -36,7 +36,7 @@ const Footer = () => (
               </div>
 
               <div className='column'>
-                <h4 className='is-size-4'>Company</h4>
+                <h3 className='has-text-white'>Company</h3>
                 <p><Link to='/about'>About</Link></p>
                 <p><Link to='/blog'>Blog</Link></p>
                 <p><Link to='/legal/terms'>Terms and Conditions</Link></p>
