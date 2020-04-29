@@ -85,16 +85,18 @@ class CheckoutForm extends React.Component {
   <Formik
     initialValues={{ name:'', line1:'', city:'', state:'', postal_code:'' }}
     validationSchema={validationSchema}
-    onSubmit={(values) => {
+    onSubmit={(values, actions) => {
       this.stripeSubmit(values)
         .then((receipt) => {
           this.props.onSubmit({shipping:values, receipt:receipt})
+          actions.setSubmitting(false)
         })
         .catch((error) => {
           this.setState({error: error})
+          actions.setSubmitting(false)
         })
     }}
-    render={({ errors, touched, handleSubmit, isSubmitting }) => (
+    render={({ errors, touched, handleSubmit, isSubmitting, setSubmitting }) => (
       <form onSubmit={handleSubmit}>
 
 

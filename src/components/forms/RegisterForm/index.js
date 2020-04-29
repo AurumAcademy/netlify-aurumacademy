@@ -106,11 +106,9 @@ class RegisterForm extends React.Component {
         <p>Thank you for registering. See you in class!</p>
           <div className='field is-grouped is-grouped-center'>
             <div className='control'>
-              <Link to='/account'>
-                <button className='button is-primary' type='button'>
-                  Hooray!
-                </button>
-              </Link>
+              <button className='button is-primary' type='button' onClick={() => {window.location.reload(false)}}>
+                Hooray!
+              </button>
             </div>
           </div>
         
