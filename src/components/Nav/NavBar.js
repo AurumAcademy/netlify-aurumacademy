@@ -31,7 +31,6 @@ class NavBar extends React.Component {
   render() {
     let loggedIn = isAuthenticated()
 
-    // TODO: add 'user' to query
     return <StaticQuery
       query={graphql`
         query NavbarQuery {
@@ -45,6 +44,7 @@ class NavBar extends React.Component {
                   name
                   link
                 }
+                user
               }
             }
           }
@@ -53,9 +53,14 @@ class NavBar extends React.Component {
       render={data => (
         <nav className='navbar is-dark' aria-label='main navigation'>
           <div className='navbar-brand'>
-            <Link to='/' className='navbar-item'>
-              {this.props.hideLogo ? '' : <Logo/> }
-            </Link>
+              {
+                this.props.hideLogo ?
+                ''
+                :
+                <Link to='/' className='navbar-item' alt='Home'>
+                  <Logo/>
+                </Link>
+              }
 
             <div role="button" aria-label="menu"
               className={`navbar-burger ${this.state.isSidebarOpen? 'is-active' : ''}`}
@@ -70,7 +75,7 @@ class NavBar extends React.Component {
               {
                 data.markdownRemark.frontmatter.content.map(item => {
                   if (
-                      (!item.user || item.user === null) ||
+                      (item.user === null) ||
                       (!loggedIn && !item.user) ||
                       (loggedIn && item.user) 
                     ) {

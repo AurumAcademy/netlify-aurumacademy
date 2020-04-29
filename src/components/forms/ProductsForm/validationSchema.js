@@ -1,8 +1,8 @@
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object().shape({
-  plan: Yup.string()
-    .required('Choose a plan!'),
+  cart: Yup.array()
+    .required('Choose a class/kit!'),
 })
 
 export default validationSchema

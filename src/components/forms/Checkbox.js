@@ -4,8 +4,8 @@ import {Field} from 'formik'
 const Checkbox = (props) => {
   return (
     <Field name={props.name}>
-      {({ field, form }) => {
-        return <label className='checkbox'>
+      {({ field, form }) => (
+        <label className='checkbox'>
           <input
             type="checkbox"
             {...props}
@@ -26,7 +26,7 @@ const Checkbox = (props) => {
             {props.value}
           </span>
         </label>
-      }}
+      )}
     </Field>
   )
 }

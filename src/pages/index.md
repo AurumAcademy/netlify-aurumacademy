@@ -12,6 +12,6 @@ classes:
   - Project Code
 register:
   text: Let's go learn some cool things!
-  button: Preregister
-  link: /preregister
+  button: Sign up
+  link: /auth/login
 ---

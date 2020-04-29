@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FormButtons = ({buttons}) => {
+const FormButtons = ({buttons, isSubmitting}) => {
   const bs = buttons || [{text:'Submit'}]
   return (
 
@@ -11,7 +11,7 @@ const FormButtons = ({buttons}) => {
           if (!b.click) {
             return (
               <div key={i} className='control'>
-                <button className='button is-primary' type='submit'>
+                <button className='button is-primary' type='submit' disabled={isSubmitting}>
                   {b.text}
                 </button>
               </div>

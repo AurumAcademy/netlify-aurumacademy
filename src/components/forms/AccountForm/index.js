@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import validationSchema from './validationSchema'
 
-class ProfileForm extends React.Component {
+class AccountForm extends React.Component {
   static propTypes = {
     user: PropTypes.shape()
   }
@@ -68,4 +68,4 @@ class ProfileForm extends React.Component {
   }
 }
 
-export default ProfileForm
+export default AccountForm

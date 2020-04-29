@@ -1,5 +1,6 @@
 import auth0 from "auth0-js"
 import { navigate } from "gatsby"
+import config from '../../config'
 
 const isBrowser = typeof window !== "undefined"
 
@@ -20,6 +21,11 @@ const tokens = {
 }
 
 let user = {}
+let profile = {}
+
+const getUserMeta = (user, key) => {
+  return user[config.siteUrl+'/'+key]
+}
 
 export const isAuthenticated = () => {
   if (!isBrowser) {
@@ -36,7 +42,7 @@ export const login = () => {
   auth.authorize()
 }
 
-const setSession = (cb = () => {}) => (err, authResult) => {
+const setSession = async (cb = () => {}) => async (err, authResult) => {
   if (err) {
     navigate("/")
     cb()
@@ -48,7 +54,10 @@ const setSession = (cb = () => {}) => (err, authResult) => {
     tokens.accessToken = authResult.accessToken
     tokens.idToken = authResult.idToken
     tokens.expiresAt = expiresAt
+
     user = authResult.idTokenPayload
+    profile = await setProfile()
+    // console.log(profile)
     localStorage.setItem("isLoggedIn", true)
 
     if (window.location.pathname === '/auth/callback') {
@@ -58,23 +67,55 @@ const setSession = (cb = () => {}) => (err, authResult) => {
   }
 }
 
-export const silentAuth = callback => {
+export const silentAuth = async callback => {
   if (!isAuthenticated()) return callback()
-  auth.checkSession({}, setSession(callback))
+  auth.checkSession({}, await setSession(callback))
 }
 
-export const handleAuthentication = () => {
+export const handleAuthentication = async () => {
   if (!isBrowser) {
     console.warn('Blocked auth on a non-browser request')
     return
   }
 
-  auth.parseHash(setSession())
+  auth.parseHash(await setSession())
+}
+
+export const setProfile = async () => {
+  let profile = {
+    name: user.name,
+    email: user.email,
+    students: [],
+    stripe_cus: getUserMeta(user, 'stripe_cus')
+  }
+
+  try {
+    const response = await fetch(process.env.GATSBY_BACKEND+'/api/user', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        customer: profile.stripe_cus
+      })
+    })
+    const data = await response.json()
+    if (data.students) {
+      profile.students = data.students
+    }
+    return profile
+  } catch {
+    return profile
+  }
+
 }
 
 export const getProfile = () => {
-  return user
+  return profile
 }
+
+
+
 
 export const logout = () => {
   localStorage.setItem("isLoggedIn", false)

@@ -1,42 +1,37 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import StudentForm from '../StudentForm'
-import PlanForm from '../PlanForm'
+import ProductsForm from '../ProductsForm'
 import StripeForm from '../StripeForm'
-import { getUserMeta } from '../../Client/utils'
 
 class RegisterForm extends React.Component {
   
   constructor (props) {
     super(props)
-    this.state = { page: 1, student: {}, plan: {name:''}, shipping: {}, receipt:'' }
+    this.state = { page: 1, student: {}, cart: {}, shipping: {}, receipt:'' }
   }
 
   handleStudent = (data) => {
     this.setState({student:data})
     this.nextPage()
-    console.log(this.state)
   }
 
-  handlePlan = ({plan}) => {
-    this.setState({plan:JSON.parse(plan)})
+  handleCart = ({cart}) => {
+    this.setState({cart:cart})
     this.nextPage()
-    console.log(this.state)
   }
 
   handleCheckout = ({shipping, receipt}) => {
     this.setState({shipping:shipping, receipt:receipt})
     this.nextPage()
-    console.log(this.state)
   }
 
   nextPage = () => {
-    console.log('next')
     let i = this.state.page
     this.changePage(i, i+1)
   }
 
   prevPage= () => {
-    console.log('prevs')
     let i = this.state.page
     this.changePage(i, i-1)
   }
@@ -54,11 +49,11 @@ class RegisterForm extends React.Component {
 
   render() {
 
-    return (
-      <div>
+    return <div>
 
+      <div id='page1'>
+        <h1>Register a student</h1>
         <StudentForm
-          id='page1'
           onSubmit={this.handleStudent}
           buttons={[
             {
@@ -66,30 +61,32 @@ class RegisterForm extends React.Component {
             }
           ]}
         />
+       </div>
   
       <div id='page2' className='hidden'>
-        <h2 style={{marginTop:'10px'}}>Select a plan</h2>
-       <PlanForm
-          onSubmit={this.handlePlan}
-          buttons={[
-            {
-              click: this.prevPage,
-              text: 'Back'
-            },
-            {
-              text: 'Continue'
-            }
-          ]}
-        />
+        <h1>Select kits and classes</h1>
+        <ProductsForm
+            onSubmit={this.handleCart}
+            buttons={[
+              {
+                click: this.prevPage,
+                text: 'Back'
+              },
+              {
+                text: 'Continue'
+              }
+            ]}
+          />
       </div>
   
       <div id='page3' className='hidden'>
-        <h2 style={{marginTop:'10px'}}>Checkout</h2>
-        <p>Getting "{this.state.plan.name}" for {this.state.student.name}</p>
+        <h1>Checkout</h1>
+        <p>Getting "{JSON.stringify(this.state.cart)}" for {this.state.student.name}</p>
 
         <StripeForm
-          plan={this.state.plan}
-          customer={getUserMeta(this.props.user, 'stripe_cus')}
+          customer={this.props.user.stripe_cus}
+          cart={this.state.cart}
+          student={this.state.student}
           onSubmit={this.handleCheckout}
           buttons={[
             {
@@ -104,14 +101,22 @@ class RegisterForm extends React.Component {
       </div>
   
       <div id='page4' className='hidden'>
-        <h2 style={{marginTop:'10px'}}>Yay!</h2>
-        <p>Here's your receipt:
-          <a href={this.state.receipt}>{this.state.receipt}</a>
-        </p>
+      {/* <div id='page4'> */}
+        <h1>And you're done!</h1>
+        <p>Thank you for registering. See you in class!</p>
+          <div className='field is-grouped is-grouped-center'>
+            <div className='control'>
+              <Link to='/account'>
+                <button className='button is-primary' type='button'>
+                  Hooray!
+                </button>
+              </Link>
+            </div>
+          </div>
+        
       </div>
 
-      </div>
-    )
+    </div>
   }
 }
 

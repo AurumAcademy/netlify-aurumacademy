@@ -14,7 +14,6 @@ import NiceWrap from '../components/TextWrappers/NiceWrap'
 
 const HomePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  console.log(frontmatter.image)
   return ( 
       <Layout hideLogo={true}>
         <section className='hero is-accent is-stagnant has-background'>

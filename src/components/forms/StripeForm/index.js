@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js'
-import { stripeCharge } from './utils'
 import { Formik, Field } from 'formik'
 import validationSchema from './validationSchema'
 import FormButtons from '../FormButtons'
@@ -19,32 +18,42 @@ class CheckoutForm extends React.Component {
     this.state = { error: '' }
   }
 
-  stripeSubmit = async () => {
+  stripeSubmit = async (data) => {
     return new Promise(async (resolve, reject) => {
-      const {stripe, elements, plan, customer} = this.props
+      const {stripe, elements, cart, student, customer} = this.props
       if (!stripe || !elements) {
-        reject('stripes not exist')
+        reject('Oops, we couldn\'t load Stripe (payment).')
       }
 
-      const card = elements.getElement(CardElement)
-      const {error, token} = await stripe.createToken(card)
-      if (error) {
-        console.log('[error]', error)
-        reject(error.message)
-      } else {
-        stripeCharge({
-          token:token.id,
-          plan:plan,
-          customer:customer
+      const cardElement = elements.getElement(CardElement)
+      stripe.createPaymentMethod({
+        type: 'card',
+        card: cardElement
+      })
+        .then((result) => {
+          if (result.error) {
+            console.log('[error]', result.error)
+            reject(result.error.message)
+          } else {
+            fetch(process.env.GATSBY_BACKEND+'/api/checkout', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify({
+                customer: customer,
+                payment: result.paymentMethod.id,
+                billing: data,
+                student: student,
+                cart: cart,
+              })
+            })
+              .then(response => {
+                resolve(response.json())
+              })
+              .catch(error => reject(error))
+          }
         })
-          .then((data) => {
-            console.log('resolve stripecharge')
-            resolve(data.receipt_url)
-          })
-          .catch((error) => {
-            reject('Error reaching the server. This is probably on our end :(. Please send us an email and we will sort this out.')
-          })
-      }
     })
   }
 
@@ -74,10 +83,10 @@ class CheckoutForm extends React.Component {
 
     return (
   <Formik
-    initialValues={{ street:'', city:'', state:'', zip:'' }}
+    initialValues={{ name:'', line1:'', city:'', state:'', postal_code:'' }}
     validationSchema={validationSchema}
     onSubmit={(values) => {
-      this.stripeSubmit()
+      this.stripeSubmit(values)
         .then((receipt) => {
           this.props.onSubmit({shipping:values, receipt:receipt})
         })
@@ -88,14 +97,26 @@ class CheckoutForm extends React.Component {
     render={({ errors, touched, handleSubmit, isSubmitting }) => (
       <form onSubmit={handleSubmit}>
 
+
+        <div className='field is-horizontal'>
+          <div className='field-body'>
+            <p className='field control' >
+              <label className='label'>Name</label>
+              <Field className='input' type='text' placeholder='First Last' name='name' id='name' />
+              {touched.name && errors.name && <small className='has-text-danger'>{errors.name}</small>}
+            </p>
+          </div>
+        </div>
+
+
         <div className='field is-horizontal'>
           <div className='field-body'>
             <p className='field control' >
               <label className='label'>Street Address
                 <span className='label-comment'>(For shipping kits!)</span>
               </label>
-              <Field className='input' type='text' placeholder='1234 Yellow Brick Rd' name='street' id='street' />
-              {touched.street && errors.street && <small className='has-text-danger'>{errors.street}</small>}
+              <Field className='input' type='text' placeholder='1234 Yellow Brick Rd' name='line1' id='line1' />
+              {touched.line1 && errors.line1 && <small className='has-text-danger'>{errors.line1}</small>}
             </p>
           </div>
 
@@ -112,16 +133,20 @@ class CheckoutForm extends React.Component {
           </div>
           <div className='field-body' style={{flexGrow:6, marginRight:'20px'}}> 
             <p className='field control'>
-              <label className='label'>State</label>
+              <label className='label'>State
+                <span className='label-comment'>or Province</span>
+              </label>
               <Field className='input' type='text' placeholder='AA' name='state' id='state' />
               {touched.state && errors.state && <small className='has-text-danger'>{errors.state}</small>}
             </p>
           </div>
-          <div className='field-body'>
+          <div className='field-body' style={{flexGrow:6}}> 
             <p className='field control'>
-              <label className='label'>Zip</label>
-              <Field className='input' type='text' placeholder='12345' name='zip' id='zip' />
-              {touched.zip && errors.zip && <small className='has-text-danger'>{errors.zip}</small>}
+              <label className='label'>ZIP
+                <span className='label-comment'>or Postal Code</span>
+              </label>
+              <Field className='input' type='text' placeholder='12345' name='postal_code' id='postal_code' />
+              {touched.postal_code && errors.postal_code && <small className='has-text-danger'>{errors.postal_code}</small>}
             </p>
           </div>
         </div>
@@ -129,7 +154,7 @@ class CheckoutForm extends React.Component {
 
         <div className='field'>
           <label className='label'>Card
-            <span className='label-comment'>(We'll charge once for kits, then subscribe you to classes)</span>
+            <span className='label-comment'>(We'll charge once for kits and subscribe you to classes)</span>
           </label>
           <div className='control'>
             {/* <div className='input'> */}
@@ -139,7 +164,7 @@ class CheckoutForm extends React.Component {
           <p className='has-text-danger'>{this.state.error}</p>
         </div>
 
-        <FormButtons buttons={buttons}/>
+        <FormButtons buttons={buttons} isSubmitting={isSubmitting}/>
       </form>
     )}
   />

@@ -5,8 +5,15 @@ const StudentCard = ({ data }) => {
   return (
     <div className='box'>
       <h1 className='has-text-accent has-text-weight-semibold'>
-        data.name
+        {data.name}
       </h1>
+      <ul>
+        {
+          data.items.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))
+        }
+      </ul>
     </div>
   )
 }

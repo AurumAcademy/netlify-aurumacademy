@@ -20,6 +20,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
         </div>
       </section>
   }
+  let user = getProfile()
   return (
       <div className='content is-full-height'>
         <div className='columns is-full-height'>
@@ -29,7 +30,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
           </div>
 
           <div className='column is-7 is-offset-1 has-medium-padding has-margin-top has-margin-bot'>
-            <Component user={getProfile()} {...rest} />
+            <Component user={user} {...rest} />
           </div>
 
         </div>

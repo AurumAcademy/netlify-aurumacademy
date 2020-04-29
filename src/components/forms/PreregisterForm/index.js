@@ -39,27 +39,29 @@ class PreregisterForm extends React.Component {
             validationSchema={validationSchema}
             onChange={this.handleChange}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(process.env.GATSBY_BACKEND)
 
-          fetch(process.env.GATSBY_BACKEND + '/api/preregister', {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json'
-            },
-            body: JSON.stringify(values)
-          })
-            .then((response) => {
-              if (response.status == 200) {
-                navigate('/preregister/yay')
-              } else {
-                navigate('/preregister/sad')
-              }
-            })
-            .catch((error) => {
-              navigate('/preregister/sad')
-              console.log(error)
-            })
-        }}
+              fetch(process.env.GATSBY_BACKEND + '/api/preregister', {
+                method: 'POST',
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(values)
+              })
+                .then((response) => {
+                  if (response.status == 200) {
+                    // console.log('yay')
+                    navigate('/preregister/yay')
+                  } else {
+                    // console.log('nay')
+                    navigate('/preregister/sad')
+                  }
+                })
+                .catch((error) => {
+                    // console.log('nay')
+                  navigate('/preregister/sad')
+                  console.log(error)
+                })
+            }}
           
             render={({ errors, touched, isSubmitting, handleChange, handleSubmit }) => (
             <form
@@ -97,7 +99,8 @@ class PreregisterForm extends React.Component {
 
             <div className='field is-grouped is-grouped-centered'>
               <div className='control'>
-                <button className='button is-medium is-primary' type='submit' disabled={isSubmitting}>
+                {/* <button className='button is-medium is-primary' type='submit' disabled={isSubmitting}> */}
+                <button className='button is-medium is-primary' type='submit' >
                   Submit
                 </button>
               </div>

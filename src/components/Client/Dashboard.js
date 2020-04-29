@@ -2,13 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const Dashboard = ({ user }) => {
-  console.log(user)
   return (
     <div>
 
       <div className='box'>
         <h1 className='has-text-accent has-text-weight-semibold'>
-          Welcome {user.nickname || user.name}
+          Welcome {user.name}
         </h1>
         <p>
           Thanks for signing up for Aurum Virtual Academy!
@@ -21,20 +20,8 @@ const Dashboard = ({ user }) => {
         </p>
       </div>
 
-      <div className='box'>
-        <h2 className='has-text-accent has-text-weight-semibold'>
-          Student registration closed
-        </h2>
-        <p>
-          Registration will open on 4/22.
-          But thank you for signing up early! It helps us gauge how we should
-          scale our service.
-        </p>
-      </div>
 
-
-{/* 
-      { !user.students &&
+      { (!user.students || user.students.length < 1) &&
         <div className='box'>
           <h2 className='has-text-accent has-text-weight-semibold'>
             Register a student
@@ -45,18 +32,18 @@ const Dashboard = ({ user }) => {
             </Link>
           </h2>
           <p>
-            Sign up for a plan and get materials.
+            Register a student to sign up for a class and/or buy a kit.
           </p>
         </div>
-      } */}
+      }
 
       <div className='box'>
         <h2 className='has-text-accent has-text-weight-semibold'>
           Notice
         </h2>
         <p>
-          There's not much here right now, but the code monkey behind this
-          is hard at work on new features!
+          This is a simplified portal. If you have any questions or need to delete a student, please send a message to 
+          &nbsp;<a href='mailto:trinity@aurumacademy.tech'>trinity@aurumacademy.tech</a>.
         </p>
       </div>
 
