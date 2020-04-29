@@ -38,8 +38,6 @@ const ContactForm = () => {
       render={({ errors, touched, isSubmitting, handleSubmit }) => (<form
         name='contact'
         onSubmit={handleSubmit}
-        data-netlify='true'
-        data-netlify-honeypot='bot-field'
       >
         <div className='field'>
           <label className='label'>Name</label>
