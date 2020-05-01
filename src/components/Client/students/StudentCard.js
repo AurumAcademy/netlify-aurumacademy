@@ -8,7 +8,7 @@ const StudentCard = ({ data }) => {
       <h1 className='has-text-accent has-text-weight-semibold'>
         {data.name}
       </h1>
-      <ul>
+     <ul>
         {
           data.classes.map((c, i) => (
             <li key={i}>{_.startCase(c)}</li>

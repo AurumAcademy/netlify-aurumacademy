@@ -6,7 +6,7 @@ const Dashboard = ({ user }) => {
     <div>
 
       <div className='box'>
-        <h1 className='has-text-accent has-text-weight-semibold'>
+        <h1>
           Welcome {user.name}
         </h1>
         <p>
@@ -23,7 +23,7 @@ const Dashboard = ({ user }) => {
 
       { (!user.students || user.students.length < 1) &&
         <div className='box'>
-          <h2 className='has-text-accent has-text-weight-semibold'>
+          <h2>
             Register a student
             <Link to='/account/register-student'>
               <button className='button is-primary is-pulled-right'>
@@ -38,7 +38,7 @@ const Dashboard = ({ user }) => {
       }
 
       <div className='box'>
-        <h2 className='has-text-accent has-text-weight-semibold'>
+        <h2>
           Notice
         </h2>
         <p>

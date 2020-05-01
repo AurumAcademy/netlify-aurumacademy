@@ -17,23 +17,26 @@ const Students = ({ user }) => {
     )
   }
   return (
+
     <div className='is-full-height'>
+
+      <div className='box'>
+        <h1>Students</h1>
+        <p>View registered students below.</p>
+          <Link to='/account/register-student'>
+            <button className='button is-primary'>
+              Register new student &rarr;
+            </button>
+          </Link>
+      </div>
+      <hr/>
+
       {
         students.map((s, i)=> (
           <StudentCard key={i} data={s} />
         ))
       }
 
-      <div className='box'>
-          <h2 className='has-text-accent has-text-weight-semibold'>
-            Add another student
-            <Link to='/account/register-student'>
-              <button className='button is-primary is-pulled-right'>
-                Register student &rarr;
-              </button>
-            </Link>
-          </h2>
-        </div>
     </div>
   )
 }

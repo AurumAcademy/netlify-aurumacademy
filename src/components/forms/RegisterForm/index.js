@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, navigate } from 'gatsby'
 import StudentForm from '../StudentForm'
 import ProductsForm from '../ProductsForm'
-import StripeForm from '../StripeForm'
+import CheckoutForm from '../CheckoutForm'
 import { setProfile } from '../../../utils/auth'
 
 class RegisterForm extends React.Component {
@@ -135,8 +135,9 @@ class RegisterForm extends React.Component {
          <hr/>
 
         <h2>Billing</h2>
-        <StripeForm
+        <CheckoutForm
           onSubmit={this.handleCheckout}
+          user={this.props.user}
           buttons={[
             {
               click: this.prevPage,

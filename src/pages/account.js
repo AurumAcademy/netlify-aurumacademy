@@ -12,7 +12,7 @@ const AccountRouter = () => {
     <PrivateLayout>
       <Router basepath='/account' style={{height:'110%'}}>
         <PrivateRoute path='/' component={Dashboard} />
-        {/* <PrivateRoute path='/edit' component={Account} /> */}
+        <PrivateRoute path='/edit' component={Account} />
         <PrivateRoute path='/students' component={Students} />
         <PrivateRoute path='/register-student' component={StudentCreate} />
       </Router>

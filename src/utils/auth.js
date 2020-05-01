@@ -100,9 +100,10 @@ export const setProfile = async () => {
       })
     })
     const data = await response.json()
-    console.log(data)
-    if (data.students) {
-      p.students = data.students
+    for (let key in data) {
+      if (data[key]) {
+        p[key] = data[key]
+      }
     }
   } catch(error) {
     console.log(error)
