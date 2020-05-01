@@ -14,10 +14,6 @@ const Dashboard = ({ user }) => {
           You can view and manage student information and make
           transactions through this account.
         </p>
-        <p>
-          If you have any questions, you can always contact us at&nbsp;
-          <a href='mailto:hi@aurumacademy.tech'>hi@aurumacademy.tech</a>.
-        </p>
       </div>
 
 
@@ -42,7 +38,7 @@ const Dashboard = ({ user }) => {
           Notice
         </h2>
         <p>
-          This is a simplified portal. If you have any questions or need to delete a student, please send a message to 
+          We hope to continue to add new features to this portal, such as student attendance and verified payments. If you have any questions or want to cancel an order, please don't hesitate to contact
           &nbsp;<a href='mailto:trinity@aurumacademy.tech'>trinity@aurumacademy.tech</a>.
         </p>
       </div>
