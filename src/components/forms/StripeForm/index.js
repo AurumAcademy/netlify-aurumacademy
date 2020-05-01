@@ -18,9 +18,9 @@ class CheckoutForm extends React.Component {
     this.state = { error: '' }
   }
 
-  stripeSubmit = async (data) => {
+  stripeSubmit = async () => {
     return new Promise(async (resolve, reject) => {
-      const {stripe, elements, cart, student, customer} = this.props
+      const {stripe, elements} = this.props
       if (!stripe || !elements) {
         reject('Oops, we couldn\'t load Stripe (payment).')
       }
@@ -35,23 +35,7 @@ class CheckoutForm extends React.Component {
             console.log('[error]', result.error)
             reject(result.error.message)
           } else {
-            fetch(process.env.GATSBY_BACKEND+'/api/checkout', {
-              method: 'POST',
-              headers: {
-                'content-type': 'application/json'
-              },
-              body: JSON.stringify({
-                customer: customer,
-                payment: result.paymentMethod.id,
-                billing: data,
-                student: student,
-                cart: cart,
-              })
-            })
-              .then(response => {
-                resolve(response.json())
-              })
-              .catch(error => reject(error))
+            resolve(result.paymentMethod.id)
           }
         })
     })
@@ -86,9 +70,12 @@ class CheckoutForm extends React.Component {
     initialValues={{ name:'', line1:'', city:'', state:'', postal_code:'' }}
     validationSchema={validationSchema}
     onSubmit={(values, actions) => {
-      this.stripeSubmit(values)
-        .then((receipt) => {
-          this.props.onSubmit({shipping:values, receipt:receipt})
+      this.stripeSubmit()
+        .then((pm) => {
+          this.props.onSubmit({pm: pm, billing: values})
+            .catch((error) => {
+              this.setState({error: error})
+            })
           actions.setSubmitting(false)
         })
         .catch((error) => {
@@ -156,7 +143,7 @@ class CheckoutForm extends React.Component {
 
         <div className='field'>
           <label className='label'>Card
-            <span className='label-comment'>(We'll charge once for kits and subscribe you to classes)</span>
+            <span className='label-comment'>(Expect an invoice to your email within 1-2 days!)</span>
           </label>
           <div className='control'>
             {/* <div className='input'> */}

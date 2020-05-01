@@ -8,6 +8,7 @@ summary: >-
   Learn the basics of energy, structures, and kinematics through building three projects: a catapult, trebuchet, and crossbow!
 target: 4th-6th
 cost: '$65/$120 kit + $12/lesson'
+price: 1200
 prereq:
   - name: Joynt Set ($65 to rent, $120 to buy)
 bios:

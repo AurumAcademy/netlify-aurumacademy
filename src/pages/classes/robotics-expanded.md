@@ -8,6 +8,7 @@ summary: >-
   After getting down your robotics fundamentals, challenge yourself by designing your very own creation! 
 target: 7th-9th
 cost: '$95-$220 + $15/lesson'
+price: 1500
 prereq:
   - name: Introduction to Robotics
     link: /classes/robotics-intro

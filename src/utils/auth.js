@@ -24,7 +24,7 @@ let user = {}
 let profile = {}
 
 const getUserMeta = (user, key) => {
-  return user[config.siteUrl+'/'+key]
+  return user[config.siteUrl+(process.env.NODE_ENV.toLowerCase() === 'production' ? '/' : '/test/')+key]
 }
 
 export const isAuthenticated = () => {
@@ -56,7 +56,7 @@ const setSession = async (cb = () => {}) => async (err, authResult) => {
     tokens.expiresAt = expiresAt
 
     user = authResult.idTokenPayload
-    profile = await setProfile()
+    await setProfile()
     // console.log(profile)
     localStorage.setItem("isLoggedIn", true)
 
@@ -82,7 +82,7 @@ export const handleAuthentication = async () => {
 }
 
 export const setProfile = async () => {
-  let profile = {
+  let p = {
     name: user.name,
     email: user.email,
     students: [],
@@ -96,15 +96,18 @@ export const setProfile = async () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        customer: profile.stripe_cus
+        customer: p.stripe_cus
       })
     })
     const data = await response.json()
+    console.log(data)
     if (data.students) {
-      profile.students = data.students
+      p.students = data.students
     }
-    return profile
-  } catch {
+  } catch(error) {
+    console.log(error)
+  } finally {
+    profile = p
     return profile
   }
 

@@ -88,7 +88,7 @@ class PreregisterForm extends React.Component {
                   {
                     data.allMarkdownRemark.nodes.map((c,i) => (
                       <li key={i}>
-                        <Checkbox name='classes' value={c.frontmatter.title} />
+                        <Checkbox name='classes' value={c.frontmatter.title} label={c.frontmatter.title} />
                       </li>
                     ))
                   }

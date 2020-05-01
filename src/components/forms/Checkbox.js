@@ -8,7 +8,8 @@ const Checkbox = (props) => {
         <label className='checkbox'>
           <input
             type="checkbox"
-            {...props}
+            name={props.name}
+            value={props.value}
             checked={field.value.includes(props.value)}
             onChange={() => {
               if (field.value.includes(props.value)) {
@@ -23,7 +24,7 @@ const Checkbox = (props) => {
             }}
           />
           <span className='checkbox-label'>
-            {props.value}
+            {props.label}
           </span>
         </label>
       )}

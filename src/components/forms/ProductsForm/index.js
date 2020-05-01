@@ -5,6 +5,7 @@ import { Formik, Field } from 'formik'
 import validationSchema from './validationSchema'
 import FormButtons from '../FormButtons'
 import Checkbox from '../Checkbox'
+import _ from 'lodash'
 
 class ProductsForm extends React.Component {
   static propTypes = {
@@ -33,6 +34,7 @@ class ProductsForm extends React.Component {
               nodes {
                 frontmatter {
                   title
+                  price
                 }
               }
             }
@@ -66,8 +68,9 @@ class ProductsForm extends React.Component {
 
                   {
                     data.products.frontmatter.content.map((p,i) => {
+                      let formattedPrice = '$' + (p.price/100.).toFixed(2)
                       return <li key={i}>
-                        <Checkbox name='cart' value={p.name} />
+                        <Checkbox name='cart' label={`${formattedPrice} ${p.name}`} value={_.kebabCase(p.name)} />
                       </li>
                     })
                   }
@@ -83,11 +86,12 @@ class ProductsForm extends React.Component {
                   <ul className='has-no-list-style'>
 
                   {
-                    data.classes.nodes.map((c,i) => (
-                      <li key={i}>
-                        <Checkbox name='cart' value={c.frontmatter.title} />
+                    data.classes.nodes.map((c,i) => {
+                      let formattedPrice = '$' + (c.frontmatter.price/100.).toFixed(2) + '/lesson'
+                      return <li key={i}>
+                        <Checkbox name='cart' label={`${c.frontmatter.title}`} value={_.kebabCase(c.frontmatter.title)}/>
                       </li>
-                    ))
+                    })
                   }
                   </ul>
                 </div>
@@ -97,14 +101,14 @@ class ProductsForm extends React.Component {
                 <label className='label'>Other</label>
                 <div className='control'>
                   <ul className='has-no-list-style'>
-                    <Checkbox name='cart' value='Robotics Summer' />
+                    <Checkbox name='cart' label='Robotics Summer' value='robotics-summer' />
                   </ul>
                 </div>
               </div>
 
               {touched.cart && errors.cart && <small className='has-text-danger'>{errors.cart}</small>}
 
-              <FormButtons buttons={this.props.buttons} isSubmitting={isSubmitting} />
+              <FormButtons buttons={this.props.buttons} />
 
             </form>)}
           />

@@ -44,7 +44,7 @@ const StudentForm = ({buttons, onSubmit, ...rest}) => (
           {touched.background && errors.background && <small className='has-text-danger'>{errors.background}</small>}
         </div>
 
-        <FormButtons buttons={buttons} isSubmitting={isSubmitting} />
+        <FormButtons buttons={buttons} />
       </form>
     )}
   />

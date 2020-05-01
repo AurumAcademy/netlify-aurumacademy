@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import _ from 'lodash'
 
 const StudentCard = ({ data }) => {
   return (
@@ -9,8 +10,8 @@ const StudentCard = ({ data }) => {
       </h1>
       <ul>
         {
-          data.items.map((item, i) => (
-            <li key={i}>{item}</li>
+          data.classes.map((c, i) => (
+            <li key={i}>{_.startCase(c)}</li>
           ))
         }
       </ul>

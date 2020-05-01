@@ -24,7 +24,9 @@ const ContactForm = () => {
           body: JSON.stringify(values)
         })
           .then((response) => {
-            if (response.status == 200) {
+            console.log(response)
+            console.log(response.status)
+            if (response.status === 200 || response.status === 204) {
               navigate('/contact/yay')
             } else {
               navigate('/contact/sad')

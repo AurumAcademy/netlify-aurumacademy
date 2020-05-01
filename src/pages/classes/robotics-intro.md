@@ -8,6 +8,7 @@ summary: >-
   Learn about how to construct a drivetrain, the basics of electronics, and how to code your machine to life!
 target: 7th-9th
 cost: '$95-$220 + $12/lesson'
+price: 1200
 prereq:
   - name: Programming Principles
     link: /classes/program-principles

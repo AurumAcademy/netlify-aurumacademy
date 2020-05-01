@@ -8,6 +8,7 @@ summary: >-
   Dive into the creative programming process by working on an app or game with a mentor! Fun and challenging for all skill levels.
 target: 4th-9th
 cost: '$15/lesson'
+price: 1500
 prereq:
   - name: Programming Principles
     link: /classes/program-principles
