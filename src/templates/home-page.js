@@ -6,7 +6,7 @@ import ImgNormalized from '../components/ImgNormalized'
 import Layout from '../components/Layout'
 import Video from '../components/Video'
 import Classes from '../components/Classes/Classes'
-import PromoThumbnail from '../assets/vid/promo.png'
+import PromoThumbnail from '../assets/vid/promo.webp'
 import PromoVideo from '../assets/vid/promo.mp4'
 import config from '../../config'
 import EachWrap from '../components/TextWrappers/EachWrap'
@@ -39,7 +39,7 @@ const HomePage = ({ data }) => {
               <h3 className='has-text-centered has-text-accent no-margin-bot'>
                 Here's a fun video about what it's like!
               </h3>
-              <Video src={PromoVideo} thumbnail={PromoThumbnail} />
+              <Video src={PromoVideo} thumbnail={PromoThumbnail}/>
             </div>
           </section>
 

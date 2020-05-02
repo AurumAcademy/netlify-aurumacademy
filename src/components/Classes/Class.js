@@ -31,7 +31,7 @@ const Class = ({data}) => {
           Recommended for: {data.target}
         </li>
         <li className='has-small-padding'>
-          <Link to={data.link} className='button is-primary has-text-weight-semibold'>Class Page &nbsp;→</Link>
+          <Link to={data.link} className='button is-primary is-outlined' style={{fontSize:'18px'}}>Class Page &nbsp;→</Link>
         </li>
       </ul>
     </section>
