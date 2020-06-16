@@ -28,6 +28,9 @@ content:
         link: "/classes/robotics-intro"
       - name: Robotics Expanded
         link: "/classes/robotics-expanded"
+  - name: Summer of Robotics
+    type: item
+    link: "summer-robotics"
   # - name: Preregister
   #   type: button
   #   link: "/preregister"
