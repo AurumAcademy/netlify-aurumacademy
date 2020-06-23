@@ -44,7 +44,7 @@ export const login = () => {
 
 const setSession = async (cb = () => {}) => async (err, authResult) => {
   if (err) {
-    navigate("/")
+    // navigate("/")
     cb()
     return
   }
