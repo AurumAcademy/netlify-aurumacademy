@@ -31,18 +31,24 @@ content:
   - name: Summer of Robotics
     type: item
     link: "summer-robotics"
+
+  - name: Contact 
+    type: button
+    link: "/contact"
+    user: none
+
   # - name: Preregister
   #   type: button
   #   link: "/preregister"
 
-  - name: Login or Signup
-    user: false
-    type: button
-    link: "/auth/login"
+  # - name: Login or Signup
+  #   user: false
+  #   type: button
+    # link: "/auth/login"
 
-  - name: My Account
-    user: true 
-    type: button
-    link: "/account"
+  # - name: My Account
+  #   user: true 
+  #   type: button
+  #   link: "/account"
 
 ---

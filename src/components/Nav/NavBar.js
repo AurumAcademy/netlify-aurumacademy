@@ -75,7 +75,7 @@ class NavBar extends React.Component {
               {
                 data.markdownRemark.frontmatter.content.map(item => {
                   if (
-                      (item.user === null) ||
+                      (item.user === null || item.user === 'none') ||
                       (!loggedIn && !item.user) ||
                       (loggedIn && item.user) 
                     ) {
