@@ -6,6 +6,7 @@ import Footer from '../Footer'
 import SEO from '../SEO/SEO'
 import config from '../../../config'
 import '../../assets/sass/styles.sass'
+import 'font-awesome/css/font-awesome.min.css'
 
 class Layout extends React.Component {
   static propTypes = {

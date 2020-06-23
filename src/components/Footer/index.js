@@ -22,7 +22,17 @@ const Footer = () => (
 
           <section className='section no-pad-top'>
 
+            <div className='social-links has-text-centered'>
+              <a className='icon is-large' href='https://www.instagram.com/aurumacademy/' target='_blank'>
+                <i className='fa fa-2x fa-instagram'></i>
+              </a>
+              <a className='icon is-large' href='https://www.facebook.com/Aurum-Virtual-Academy-100541274986220' target='_blank'>
+                <i className='fa fa-2x fa-facebook'></i>
+              </a>
+            </div>
+
             <div className='columns'>
+
               <div className='column'>
                 <h3 className='has-text-white'>Contact</h3>
                 <p>
